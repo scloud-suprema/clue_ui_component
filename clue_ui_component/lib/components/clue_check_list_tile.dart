@@ -1,18 +1,19 @@
 import 'package:clue_ui_component/components/clue_text.dart';
+import 'package:clue_ui_component/images.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class ClueCheckListTile extends StatefulWidget {
-  final SvgPicture checkboxOn;
-  final SvgPicture checkboxOff;
+  final SvgPicture? checkboxOn;
+  final SvgPicture? checkboxOff;
 
   const ClueCheckListTile({
-    super.key,
+    Key? key,
     required this.title,
     this.initValue,
     required this.onChanged,
-    required this.checkboxOn,
-    required this.checkboxOff,
+    this.checkboxOn,
+    this.checkboxOff,
   });
 
   /// 타이틀
@@ -52,7 +53,7 @@ class _ClueCheckListTileState extends State<ClueCheckListTile> {
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            isChecked ? widget.checkboxOn : widget.checkboxOff,
+            isChecked ? widget.checkboxOn ?? MyImages.checkboxOn : widget.checkboxOff ?? MyImages.checkboxOff,
             const SizedBox(width: 8),
             ClueText(widget.title),
           ],

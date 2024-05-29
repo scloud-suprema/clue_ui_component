@@ -2,16 +2,17 @@ import 'package:clue_ui_component/components/clue_circle_counter.dart';
 import 'package:clue_ui_component/components/clue_divider.dart';
 import 'package:clue_ui_component/components/clue_text.dart';
 import 'package:clue_ui_component/extensions/style_extension.dart';
+import 'package:clue_ui_component/images.dart';
 import 'package:clue_ui_component/themes/themes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class ClueDropDownCheckButton<T, E> extends StatefulWidget {
-  final SvgPicture checkboxOn;
-  final SvgPicture checkboxOff;
-  final SvgPicture arrowImage;
+  SvgPicture? checkboxOn;
+  SvgPicture? checkboxOff;
+  SvgPicture? arrowImage;
 
-  const ClueDropDownCheckButton(
+  ClueDropDownCheckButton(
       {super.key,
       this.title,
       required this.allSelectText,
@@ -22,9 +23,9 @@ class ClueDropDownCheckButton<T, E> extends StatefulWidget {
       this.itemMap = const {},
       this.width,
       required this.onChanged,
-      required this.checkboxOn,
-      required this.checkboxOff,
-      required this.arrowImage});
+      this.checkboxOn,
+      this.checkboxOff,
+      this.arrowImage});
 
   final String? title;
   final String allSelectText;
@@ -158,7 +159,7 @@ class ClueDropDownCheckListState<T, E> extends State<ClueDropDownCheckButton<T, 
                       ] else ...[
                         const Spacer(),
                       ],
-                      widget.arrowImage,
+                      widget.arrowImage ?? MyImages.grayDownArrow,
                     ],
                   ),
                 ),
@@ -232,7 +233,7 @@ class ClueDropDownCheckListState<T, E> extends State<ClueDropDownCheckButton<T, 
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Row(
             children: [
-              isChecked ? widget.checkboxOn : widget.checkboxOff,
+              isChecked ? widget.checkboxOn ?? MyImages.checkboxOn : widget.checkboxOff ?? MyImages.checkboxOff,
               const SizedBox(width: 8),
               ClueText(
                 value.toString(),
@@ -273,7 +274,7 @@ class ClueDropDownCheckListState<T, E> extends State<ClueDropDownCheckButton<T, 
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Row(
               children: [
-                isChecked ? widget.checkboxOn : widget.checkboxOff,
+                isChecked ? widget.checkboxOn ?? MyImages.checkboxOn : widget.checkboxOff ?? MyImages.checkboxOff,
                 const SizedBox(width: 8),
                 ClueText(
                   value.toString(),

@@ -26,7 +26,7 @@ enum MinuteStatus {
 
   @override
   String toString() {
-    return '${value.toString().padLeft(2, '0')}minute';
+    return '${value.toString().padLeft(2, '0')} minute';
   }
 
   static final toMap = {for (var v in MinuteStatus.values) v: v.toString()};

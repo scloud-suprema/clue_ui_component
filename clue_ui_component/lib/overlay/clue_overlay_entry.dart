@@ -1,3 +1,4 @@
+import 'package:clue_ui_component/images.dart';
 import 'package:clue_ui_component/themes/themes.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
@@ -109,22 +110,22 @@ class _AnimatedListItem extends StatelessWidget {
 }
 
 class SuccessToast extends StatelessWidget {
-  const SuccessToast({Key? key, required this.text, required this.fontfamily, required this.circleBlueCheck}) : super(key: key);
-  final SvgPicture circleBlueCheck;
+  const SuccessToast({Key? key, required this.text, this.fontfamily, this.circleBlueCheck}) : super(key: key);
+  final SvgPicture? circleBlueCheck;
   final String text;
-  final String fontfamily;
+  final String? fontfamily;
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
-        circleBlueCheck,
+        circleBlueCheck ?? MyImages.circleBlueCheck,
         const SizedBox(width: 8),
         DefaultTextStyle(
           style: TextStyle(
             fontSize: 14,
             color: MyColors.xFFFFFFFF,
-            fontFamily: fontfamily,
+            fontFamily: fontfamily ?? "NotoSansKR",
           ),
           child: Text(
             text,
@@ -137,23 +138,23 @@ class SuccessToast extends StatelessWidget {
 }
 
 class ErrorToast extends StatelessWidget {
-  const ErrorToast({Key? key, required this.text, required this.fontfamily, required this.circleRedNotice}) : super(key: key);
+  ErrorToast({Key? key, required this.text, this.fontfamily, this.circleRedNotice}) : super(key: key);
 
   final String text;
-  final String fontfamily;
-  final SvgPicture circleRedNotice;
+  final String? fontfamily;
+  SvgPicture? circleRedNotice;
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
-        circleRedNotice,
+        circleRedNotice ?? MyImages.circleRedNotice,
         const SizedBox(width: 8),
         DefaultTextStyle(
           style: TextStyle(
             fontSize: 14,
             color: MyColors.xFFFFFFFF,
-            fontFamily: fontfamily,
+            fontFamily: fontfamily ?? "NotoSansKR",
           ),
           child: Text(
             text,

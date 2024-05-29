@@ -79,13 +79,13 @@ void main() {
     final SvgPicture circleRedNotice = SvgPicture.string(svgData);
 
     // showSuccessToast 테스트
-    ClueOverlay.showSuccessToast("Success", "Arial", circleBlueCheck, navigatorKey);
+    ClueOverlay.showSuccessToast("Success", navigatorKey, fontfamily: "Arial", circleBlueCheck: circleBlueCheck);
     await tester.pumpAndSettle();
 
     expect(find.text("Success"), findsOneWidget);
 
     // showErrorToast 테스트
-    ClueOverlay.showErrorToast("Error", "Arial", circleRedNotice, navigatorKey);
+    ClueOverlay.showErrorToast("Error", navigatorKey, fontfamily: "Arial", circleRedNotice: circleRedNotice);
     await tester.pumpAndSettle();
 
     expect(find.text("Error"), findsOneWidget);
@@ -117,9 +117,6 @@ void main() {
 
   testWidgets('showCalendarSingle가 제대로 작동함', (WidgetTester tester) async {
     final navigatorKey = GlobalKey<NavigatorState>();
-    final SvgPicture leftArrow = SvgPicture.string(svgData);
-    final SvgPicture rightArrow = SvgPicture.string(svgData);
-    final SvgPicture errorIcon = SvgPicture.string(svgData);
 
     await tester.pumpWidget(
       MaterialApp(
@@ -134,15 +131,11 @@ void main() {
       initDateTime: DateTime.now(),
       minDateTime: DateTime.now().subtract(Duration(days: 365)),
       maxDateTime: DateTime.now().add(Duration(days: 365)),
-      errorFontfamily: 'Arial',
       lastMonthString: 'Previous',
       nextMonthString: 'Next',
       cancelString: 'Cancel',
       okString: 'OK',
       selectDateString: 'Select a date',
-      leftArrow: leftArrow,
-      circleRedNotice: errorIcon,
-      rightArrow: rightArrow,
     );
     await tester.pump();
 
@@ -159,9 +152,6 @@ void main() {
 
   testWidgets('showCalendarSingle가 제대로 작동함', (WidgetTester tester) async {
     final navigatorKey = GlobalKey<NavigatorState>();
-    final SvgPicture leftArrow = SvgPicture.string(svgData);
-    final SvgPicture rightArrow = SvgPicture.string(svgData);
-    final SvgPicture errorIcon = SvgPicture.string(svgData);
 
     await tester.pumpWidget(
       MaterialApp(
@@ -176,15 +166,11 @@ void main() {
       initDateTime: DateTime.now(),
       minDateTime: DateTime.now().subtract(Duration(days: 365)),
       maxDateTime: DateTime.now().add(Duration(days: 365)),
-      errorFontfamily: 'Arial',
       lastMonthString: 'Previous',
       nextMonthString: 'Next',
       cancelString: 'Cancel',
       okString: 'OK',
       selectDateString: 'Select a date',
-      leftArrow: leftArrow,
-      circleRedNotice: errorIcon,
-      rightArrow: rightArrow,
     );
     await tester.pump();
 
@@ -198,9 +184,6 @@ void main() {
 
   testWidgets('showCalendarMulti가 제대로 작동함', (WidgetTester tester) async {
     final navigatorKey = GlobalKey<NavigatorState>();
-    final SvgPicture leftArrow = SvgPicture.string(svgData);
-    final SvgPicture rightArrow = SvgPicture.string(svgData);
-    final SvgPicture errorIcon = SvgPicture.string(svgData);
 
     await tester.pumpWidget(
       MaterialApp(
@@ -222,9 +205,6 @@ void main() {
       okString: 'OK',
       selectDateString: 'Select dates',
       daysMaxString: 'Max 5 days',
-      leftArrow: leftArrow,
-      circleRedNotice: errorIcon,
-      rightArrow: rightArrow,
     );
     await tester.pump();
 
@@ -242,9 +222,6 @@ void main() {
 
   testWidgets('showCalendarMulti가 제대로 작동함', (WidgetTester tester) async {
     final navigatorKey = GlobalKey<NavigatorState>();
-    final SvgPicture leftArrow = SvgPicture.string(svgData);
-    final SvgPicture rightArrow = SvgPicture.string(svgData);
-    final SvgPicture errorIcon = SvgPicture.string(svgData);
 
     await tester.pumpWidget(
       MaterialApp(
@@ -266,9 +243,6 @@ void main() {
       okString: 'OK',
       selectDateString: 'Select dates',
       daysMaxString: 'Max 5 days',
-      leftArrow: leftArrow,
-      circleRedNotice: errorIcon,
-      rightArrow: rightArrow,
     );
     await tester.pump();
 
@@ -286,9 +260,6 @@ void main() {
 
   testWidgets('showCalendarRange가 제대로 작동함', (WidgetTester tester) async {
     final navigatorKey = GlobalKey<NavigatorState>();
-    final SvgPicture leftArrow = SvgPicture.string(svgData);
-    final SvgPicture rightArrow = SvgPicture.string(svgData);
-    final SvgPicture errorIcon = SvgPicture.string(svgData);
 
     await tester.pumpWidget(
       MaterialApp(
@@ -311,9 +282,6 @@ void main() {
       selectDateString: 'Select a date range',
       daysMaxString: 'Max 7 days',
       selectDurationString: 'Select a duration',
-      leftArrow: leftArrow,
-      circleRedNotice: errorIcon,
-      rightArrow: rightArrow,
     );
     await tester.pump();
 
@@ -331,9 +299,6 @@ void main() {
 
   testWidgets('showCalendarRange가 제대로 작동함', (WidgetTester tester) async {
     final navigatorKey = GlobalKey<NavigatorState>();
-    final SvgPicture leftArrow = SvgPicture.string(svgData);
-    final SvgPicture rightArrow = SvgPicture.string(svgData);
-    final SvgPicture errorIcon = SvgPicture.string(svgData);
 
     await tester.pumpWidget(
       MaterialApp(
@@ -356,9 +321,6 @@ void main() {
       selectDateString: 'Select a date range',
       daysMaxString: 'Max 7 days',
       selectDurationString: 'Select a duration',
-      leftArrow: leftArrow,
-      circleRedNotice: errorIcon,
-      rightArrow: rightArrow,
     );
     await tester.pump();
 

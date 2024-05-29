@@ -1,6 +1,7 @@
 import 'package:clue_ui_component/components/clue_decorated_button.dart';
 import 'package:clue_ui_component/extensions/date_time_extension.dart';
 import 'package:clue_ui_component/extensions/style_extension.dart';
+import 'package:clue_ui_component/images.dart';
 import 'package:clue_ui_component/overlay/clue_overlay.dart';
 import 'package:clue_ui_component/themes/themes.dart';
 import 'package:flutter/material.dart';
@@ -35,15 +36,14 @@ class ClueScheduleCalendar extends StatefulWidget {
   final String selectDateString;
   final String daysMaxString;
   final String selectDurationString;
-
-  final SvgPicture leftArrowImage;
-  final SvgPicture calendarImage;
-  final SvgPicture rightArrowImage;
-  final SvgPicture refreshImage;
-  final SvgPicture circleLeftArrowImage;
-  final SvgPicture circleRedNotice;
-  const ClueScheduleCalendar({
-    Key? key,
+  SvgPicture? leftArrowImage;
+  SvgPicture? calendarImage;
+  SvgPicture? rightArrowImage;
+  SvgPicture? refreshImage;
+  SvgPicture? circleLeftArrowImage;
+  SvgPicture? circleRedNotice;
+  ClueScheduleCalendar({
+    super.key,
     this.headerLeftWidget,
     this.headerRightWidget,
     required this.navigatorKey,
@@ -60,15 +60,14 @@ class ClueScheduleCalendar extends StatefulWidget {
     required this.select,
     required this.range,
     required this.todayText,
-    required this.leftArrowImage,
-    required this.calendarImage,
-    required this.rightArrowImage,
-    required this.refreshImage,
-    required this.circleLeftArrowImage,
-    required this.circleRedNotice,
+    this.leftArrowImage,
+    this.calendarImage,
+    this.rightArrowImage,
+    this.refreshImage,
+    this.circleLeftArrowImage,
     this.onRefresh,
     required this.onCalanderClick,
-  }) : super(key: key);
+  });
 
   @override
   State<ClueScheduleCalendar> createState() => _ClueScheduleCalendarState();
@@ -187,7 +186,7 @@ class _ClueScheduleCalendarState extends State<ClueScheduleCalendar> {
                         now = now.add(const Duration(days: -1));
                         setDate(st: now.startOfDay, et: now.endOfDay, callback: true);
                       },
-                      child: Center(child: widget.leftArrowImage),
+                      child: Center(child: widget.leftArrowImage ?? MyImages.leftArrow),
                     ),
                     const SizedBox(width: 16),
                     displayDate,
@@ -196,7 +195,7 @@ class _ClueScheduleCalendarState extends State<ClueScheduleCalendar> {
                       onPressed: () async {
                         widget.onCalanderClick();
                       },
-                      icon: widget.calendarImage,
+                      icon: widget.calendarImage ?? MyImages.calendar,
                     ),
                     const Gap(8),
                     ClueDecoratedButton.icon30(
@@ -211,7 +210,7 @@ class _ClueScheduleCalendarState extends State<ClueScheduleCalendar> {
                           setDate(st: now.startOfDay, et: now.endOfDay, callback: true);
                         }
                       },
-                      child: widget.rightArrowImage,
+                      child: widget.rightArrowImage ?? MyImages.rightArrow,
                     ),
                     const Gap(8),
                     ClueDecoratedButton.icon30(
@@ -220,7 +219,7 @@ class _ClueScheduleCalendarState extends State<ClueScheduleCalendar> {
                           widget.onRefresh!();
                         }
                       },
-                      child: widget.refreshImage,
+                      child: widget.refreshImage ?? MyImages.refresh,
                     ),
                     const Spacer(),
                     widget.headerRightWidget ?? const SizedBox.shrink(),
@@ -257,7 +256,11 @@ class _ClueScheduleCalendarState extends State<ClueScheduleCalendar> {
                                 horizontalDateController.animateTo(scrollPosition - (horizontalItemWidth * 7),
                                     curve: Curves.easeInOut, duration: animatedContainerDuration);
                               },
-                              child: SizedBox(key: const Key("before"), width: 40, height: 40, child: widget.circleLeftArrowImage),
+                              child: SizedBox(
+                                  key: const Key("before"),
+                                  width: 40,
+                                  height: 40,
+                                  child: widget.circleLeftArrowImage ?? MyImages.circleLeftArrow),
                             ),
                             InkWell(
                               borderRadius: BorderRadius.circular(50),
@@ -269,7 +272,7 @@ class _ClueScheduleCalendarState extends State<ClueScheduleCalendar> {
                                   key: const Key("after"),
                                   width: 40,
                                   height: 40,
-                                  child: RotatedBox(quarterTurns: 90, child: widget.circleLeftArrowImage)),
+                                  child: RotatedBox(quarterTurns: 90, child: widget.circleLeftArrowImage ?? MyImages.circleLeftArrow)),
                             ),
                           ],
                         ),
@@ -426,7 +429,7 @@ class HorizontalCalendarItem extends StatefulWidget {
   final Function(DateTime) setDate;
 
   const HorizontalCalendarItem({
-    Key? key,
+    super.key,
     required this.dateTime,
     required this.itemWidth,
     required this.isSameDate,
@@ -435,7 +438,7 @@ class HorizontalCalendarItem extends StatefulWidget {
     required this.isInDate,
     required this.isEdge,
     required this.setDate,
-  }) : super(key: key);
+  });
 
   @override
   State<HorizontalCalendarItem> createState() => _HorizontalCalendarItemState();

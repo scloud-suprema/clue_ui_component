@@ -48,7 +48,6 @@ void main() {
             rightArrowImage: rightArrowImage,
             refreshImage: refreshImage,
             circleLeftArrowImage: circleLeftArrowImage,
-            circleRedNotice: circleRedNotice,
             onRefresh: () {
               print('Refresh button clicked');
             },
@@ -105,7 +104,6 @@ void main() {
             rightArrowImage: rightArrowImage,
             refreshImage: refreshImage,
             circleLeftArrowImage: circleLeftArrowImage,
-            circleRedNotice: circleRedNotice,
             onCalanderClick: () {},
           ),
         ),
@@ -165,7 +163,6 @@ void main() {
             rightArrowImage: rightArrowImage,
             refreshImage: refreshImage,
             circleLeftArrowImage: circleLeftArrowImage,
-            circleRedNotice: circleRedNotice,
             onCalanderClick: () {},
           ),
         ),
@@ -229,7 +226,6 @@ void main() {
             rightArrowImage: rightArrowImage,
             refreshImage: refreshImage,
             circleLeftArrowImage: circleLeftArrowImage,
-            circleRedNotice: circleRedNotice,
             onCalanderClick: () {},
           ),
         ),
@@ -288,7 +284,6 @@ void main() {
             rightArrowImage: rightArrowImage,
             refreshImage: refreshImage,
             circleLeftArrowImage: circleLeftArrowImage,
-            circleRedNotice: circleRedNotice,
             onCalanderClick: () {
               isCalanerClick = true;
             },
@@ -345,7 +340,6 @@ void main() {
               rightArrowImage: rightArrowImage,
               refreshImage: refreshImage,
               circleLeftArrowImage: circleLeftArrowImage,
-              circleRedNotice: circleRedNotice,
               onRefresh: () {
                 refreshButtonClicked = true;
               },
@@ -402,7 +396,6 @@ void main() {
             rightArrowImage: rightArrowImage,
             refreshImage: refreshImage,
             circleLeftArrowImage: circleLeftArrowImage,
-            circleRedNotice: circleRedNotice,
             onCalanderClick: () {},
           ),
         ),
@@ -458,7 +451,6 @@ void main() {
             rightArrowImage: rightArrowImage,
             refreshImage: refreshImage,
             circleLeftArrowImage: circleLeftArrowImage,
-            circleRedNotice: circleRedNotice,
             onCalanderClick: () {},
           ),
         ),

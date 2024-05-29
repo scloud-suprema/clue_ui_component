@@ -21,7 +21,7 @@ enum HourStatus {
   // 확장
   @override
   String toString() {
-    return '${value.toString().padLeft(2, '0')}hour';
+    return '${value.toString().padLeft(2, '0')} hour';
   }
 
   factory HourStatus.fromHour(int hour) {
