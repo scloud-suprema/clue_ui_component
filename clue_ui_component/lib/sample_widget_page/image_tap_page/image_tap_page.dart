@@ -14,6 +14,10 @@ class ImageTapPage extends StatelessWidget {
         spacing: 16,
         runSpacing: 16,
         children: [
+          ImageWidget(
+            code: 'MyImages.footerLogo',
+            myImage: MyImages.footerLogo,
+          ),
           // ImageWidget(
           //   code: 'MyImages.appIcon',
           //   myImage: MyImages.appIcon,
@@ -22,10 +26,6 @@ class ImageTapPage extends StatelessWidget {
           //   code: 'MyImages.headerLogo',
           //   myImage: MyImages.headerLogo,
           // ),
-          ImageWidget(
-            code: 'MyImages.footerLogo',
-            myImage: MyImages.footerLogo,
-          ),
           ImageWidget(
             code: 'MyImages.checkboxOn',
             myImage: MyImages.checkboxOn,
@@ -37,10 +37,6 @@ class ImageTapPage extends StatelessWidget {
           ImageWidget(
             code: 'MyImages.calendar',
             myImage: MyImages.calendar,
-          ),
-          ImageWidget(
-            code: 'MyImages.refresh',
-            myImage: MyImages.refresh,
           ),
           ImageWidget(
             code: 'MyImages.pageLeft',
@@ -61,30 +57,6 @@ class ImageTapPage extends StatelessWidget {
           ImageWidget(
             code: 'MyImages.grayDownArrow',
             myImage: MyImages.grayDownArrow,
-          ),
-          ImageWidget(
-            code: 'MyImages.authFaceBlack',
-            myImage: MyImages.authFaceBlack,
-          ),
-          ImageWidget(
-            code: 'MyImages.authFaceBlue',
-            myImage: MyImages.authFaceBlue,
-          ),
-          ImageWidget(
-            code: 'MyImages.authQRBlack',
-            myImage: MyImages.authQRBlack,
-          ),
-          ImageWidget(
-            code: 'MyImages.authQRBlue',
-            myImage: MyImages.authQRBlue,
-          ),
-          ImageWidget(
-            code: 'MyImages.circleBlueCheck',
-            myImage: MyImages.circleBlueCheck,
-          ),
-          ImageWidget(
-            code: 'MyImages.circleRedNotice',
-            myImage: MyImages.circleRedNotice,
           ),
           ImageWidget(
             code: 'MyImages.monitoring',
@@ -141,6 +113,126 @@ class ImageTapPage extends StatelessWidget {
           ImageWidget(
             code: 'MyImages.settingOn',
             myImage: MyImages.settingOn,
+          ),
+          ImageWidget(
+            code: 'MyImages.circleCheckedBlack',
+            myImage: MyImages.circleCheckedBlack,
+          ),
+          ImageWidget(
+            code: 'MyImages.circleBlueCheck',
+            myImage: MyImages.circleBlueCheck,
+          ),
+          ImageWidget(
+            code: 'MyImages.circleRedNotice',
+            myImage: MyImages.circleRedNotice,
+          ),
+          ImageWidget(
+            code: 'MyImages.doorNone',
+            myImage: MyImages.doorNone,
+          ),
+          ImageWidget(
+            code: 'MyImages.leftArrowBox',
+            myImage: MyImages.leftArrowBox,
+          ),
+          ImageWidget(
+            code: 'MyImages.rightArrowBox',
+            myImage: MyImages.rightArrowBox,
+          ),
+          ImageWidget(
+            code: 'MyImages.moreBlack',
+            myImage: MyImages.moreBlack,
+          ),
+          ImageWidget(
+            code: 'MyImages.search',
+            myImage: MyImages.search,
+          ),
+          ImageWidget(
+            code: 'MyImages.close',
+            myImage: MyImages.close,
+          ),
+          ImageWidget(
+            code: 'MyImages.plus',
+            myImage: MyImages.plus,
+          ),
+          ImageWidget(
+            code: 'MyImages.minus',
+            myImage: MyImages.minus,
+          ),
+          ImageWidget(
+            code: 'MyImages.searchNone',
+            myImage: MyImages.searchNone,
+          ),
+          ImageWidget(
+            code: 'MyImages.add',
+            myImage: MyImages.add,
+          ),
+          ImageWidget(
+            code: 'MyImages.addButton',
+            myImage: MyImages.addButton,
+          ),
+          ImageWidget(
+            code: 'MyImages.mail',
+            myImage: MyImages.mail,
+          ),
+          ImageWidget(
+            code: 'MyImages.more',
+            myImage: MyImages.more,
+          ),
+          ImageWidget(
+            code: 'MyImages.userDelete',
+            myImage: MyImages.userDelete,
+          ),
+          ImageWidget(
+            code: 'MyImages.userCancel',
+            myImage: MyImages.userCancel,
+          ),
+          ImageWidget(
+            code: 'MyImages.refresh',
+            myImage: MyImages.refresh,
+          ),
+          ImageWidget(
+            code: 'MyImages.whitePlus',
+            myImage: MyImages.whitePlus,
+          ),
+          ImageWidget(
+            code: 'MyImages.whiteMinus',
+            myImage: MyImages.whiteMinus,
+          ),
+          ImageWidget(
+            code: 'MyImages.whiteClose',
+            myImage: MyImages.whiteClose,
+          ),
+          ImageWidget(
+            code: 'MyImages.circleGrayShell',
+            myImage: MyImages.circleGrayShell,
+          ),
+          ImageWidget(
+            code: 'MyImages.circleGraySolid',
+            myImage: MyImages.circleGraySolid,
+          ),
+          ImageWidget(
+            code: 'MyImages.authFaceBlack',
+            myImage: MyImages.authFaceBlack,
+          ),
+          ImageWidget(
+            code: 'MyImages.authFaceBlue',
+            myImage: MyImages.authFaceBlue,
+          ),
+          ImageWidget(
+            code: 'MyImages.authQRBlack',
+            myImage: MyImages.authQRBlack,
+          ),
+          ImageWidget(
+            code: 'MyImages.authQRBlue',
+            myImage: MyImages.authQRBlue,
+          ),
+          ImageWidget(
+            code: 'MyImages.circleGraySolid22',
+            myImage: MyImages.circleGraySolid22,
+          ),
+          ImageWidget(
+            code: 'MyImages.circleCheckedBlack22',
+            myImage: MyImages.circleCheckedBlack22,
           ),
         ],
       ),
