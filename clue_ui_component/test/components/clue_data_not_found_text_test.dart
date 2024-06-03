@@ -8,7 +8,7 @@ void main() {
     const String notFoundMessage = 'Data not found';
 
     await tester.pumpWidget(
-      MaterialApp(
+      const MaterialApp(
         home: Scaffold(
           body: ClueDataNotFoundText(notFoundText: notFoundMessage),
         ),

@@ -10,8 +10,6 @@ void main() {
   </svg>
   ''';
 
-  final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
-
   testWidgets('ClueScheduleCalendar가 올바르게 렌더링됨', (WidgetTester tester) async {
     // 기본 데이터를 설정
     final now = DateTime.now();
@@ -20,16 +18,15 @@ void main() {
     final SvgPicture rightArrowImage = SvgPicture.string(svgData);
     final SvgPicture refreshImage = SvgPicture.string(svgData);
     final SvgPicture circleLeftArrowImage = SvgPicture.string(svgData);
-    final SvgPicture circleRedNotice = SvgPicture.string(svgData);
 
     // ClueScheduleCalendar 위젯 빌드
     await tester.pumpWidget(
       MaterialApp(
         home: Scaffold(
-          appBar: AppBar(title: Text('ClueScheduleCalendar Demo')),
+          appBar: AppBar(title: const Text('ClueScheduleCalendar Demo')),
           body: ClueScheduleCalendar(
-            key: Key("ClueScheduleCalendar"),
-            initStartTime: now.subtract(Duration(days: 7)),
+            key: const Key("ClueScheduleCalendar"),
+            initStartTime: now.subtract(const Duration(days: 7)),
             initEndTime: now,
             select: (startTime, endTime) {},
             range: (startTime, endTime) {},
@@ -47,9 +44,7 @@ void main() {
             rightArrowImage: rightArrowImage,
             refreshImage: refreshImage,
             circleLeftArrowImage: circleLeftArrowImage,
-            onRefresh: () {
-              print('Refresh button clicked');
-            },
+            onRefresh: () {},
             onCalanderClick: () {},
           ),
         ),
@@ -72,7 +67,6 @@ void main() {
     final rightArrowImage = SvgPicture.string(svgData);
     final refreshImage = SvgPicture.string(svgData);
     final circleLeftArrowImage = SvgPicture.string(svgData);
-    final circleRedNotice = SvgPicture.string(svgData);
 
     DateTime? selectedStartTime;
     DateTime? selectedEndTime;
@@ -81,7 +75,7 @@ void main() {
       MaterialApp(
         home: Scaffold(
           body: ClueScheduleCalendar(
-            initStartTime: initialDate.subtract(Duration(days: 7)),
+            initStartTime: initialDate.subtract(const Duration(days: 7)),
             initEndTime: initialDate,
             select: (startTime, endTime) {
               selectedStartTime = startTime;
@@ -118,19 +112,18 @@ void main() {
 
     // 날짜가 이전 날짜로 이동했는지 확인
     var initialDateOnly = DateTime(initialDate.year, initialDate.month, initialDate.day);
-    expect(selectedStartTime, initialDateOnly.subtract(Duration(days: 1)));
+    expect(selectedStartTime, initialDateOnly.subtract(const Duration(days: 1)));
     initialDateOnly = DateTime(initialDate.year, initialDate.month, initialDate.day, 23, 59, 59, 999);
-    expect(selectedEndTime, initialDateOnly.subtract(Duration(days: 1)));
+    expect(selectedEndTime, initialDateOnly.subtract(const Duration(days: 1)));
   });
 
   testWidgets('오른쪽 화살표 버튼 클릭 시 다음 날짜로 이동', (WidgetTester tester) async {
-    final initialDate = DateTime.now().subtract(Duration(days: 1));
+    final initialDate = DateTime.now().subtract(const Duration(days: 1));
     final leftArrowImage = SvgPicture.string(svgData);
     final calendarImage = SvgPicture.string(svgData);
     final rightArrowImage = SvgPicture.string(svgData);
     final refreshImage = SvgPicture.string(svgData);
     final circleLeftArrowImage = SvgPicture.string(svgData);
-    final circleRedNotice = SvgPicture.string(svgData);
 
     DateTime? selectedStartTime;
     DateTime? selectedEndTime;
@@ -139,7 +132,7 @@ void main() {
       MaterialApp(
         home: Scaffold(
           body: ClueScheduleCalendar(
-            initStartTime: initialDate.subtract(Duration(days: 7)),
+            initStartTime: initialDate.subtract(const Duration(days: 7)),
             initEndTime: initialDate,
             select: (startTime, endTime) {
               selectedStartTime = startTime;
@@ -180,9 +173,9 @@ void main() {
 
     // 날짜가 이전 날짜로 이동했는지 확인
     var initialDateOnly = DateTime(initialDate.year, initialDate.month, initialDate.day);
-    expect(selectedStartTime, initialDateOnly.add(Duration(days: 1)));
+    expect(selectedStartTime, initialDateOnly.add(const Duration(days: 1)));
     initialDateOnly = DateTime(initialDate.year, initialDate.month, initialDate.day, 23, 59, 59, 999);
-    expect(selectedEndTime, initialDateOnly.add(Duration(days: 1)));
+    expect(selectedEndTime, initialDateOnly.add(const Duration(days: 1)));
   });
 
   testWidgets('Today 버튼 클릭 시 다음 날짜로 이동', (WidgetTester tester) async {
@@ -192,7 +185,6 @@ void main() {
     final rightArrowImage = SvgPicture.string(svgData);
     final refreshImage = SvgPicture.string(svgData);
     final circleLeftArrowImage = SvgPicture.string(svgData);
-    final circleRedNotice = SvgPicture.string(svgData);
 
     DateTime? selectedStartTime;
     DateTime? selectedEndTime;
@@ -201,7 +193,7 @@ void main() {
       MaterialApp(
         home: Scaffold(
           body: ClueScheduleCalendar(
-            initStartTime: initialDate.subtract(Duration(days: 7)),
+            initStartTime: initialDate.subtract(const Duration(days: 7)),
             initEndTime: initialDate,
             select: (startTime, endTime) {
               selectedStartTime = startTime;
@@ -250,7 +242,6 @@ void main() {
     final rightArrowImage = SvgPicture.string(svgData);
     final refreshImage = SvgPicture.string(svgData);
     final circleLeftArrowImage = SvgPicture.string(svgData);
-    final circleRedNotice = SvgPicture.string(svgData);
     DateTime? selectedStartTime;
     DateTime? selectedEndTime;
     bool isCalanerClick = false;
@@ -259,7 +250,7 @@ void main() {
       MaterialApp(
         home: Scaffold(
           body: ClueScheduleCalendar(
-            initStartTime: initialDate.subtract(Duration(days: 7)),
+            initStartTime: initialDate.subtract(const Duration(days: 7)),
             initEndTime: initialDate,
             select: (startTime, endTime) {},
             range: (startTime, endTime) {},
@@ -304,7 +295,6 @@ void main() {
     final SvgPicture rightArrowImage = SvgPicture.string(svgData);
     final SvgPicture refreshImage = SvgPicture.string(svgData);
     final SvgPicture circleLeftArrowImage = SvgPicture.string(svgData);
-    final SvgPicture circleRedNotice = SvgPicture.string(svgData);
     bool refreshButtonClicked = false;
 
     // ClueScheduleCalendar 위젯 빌드
@@ -312,9 +302,9 @@ void main() {
       MaterialApp(
         home: Scaffold(
           body: MediaQuery(
-            data: MediaQueryData(size: Size(800, 600)),
+            data: const MediaQueryData(size: Size(800, 600)),
             child: ClueScheduleCalendar(
-              initStartTime: now.subtract(Duration(days: 7)),
+              initStartTime: now.subtract(const Duration(days: 7)),
               initEndTime: now,
               select: (startTime, endTime) {},
               range: (startTime, endTime) {},
@@ -357,7 +347,6 @@ void main() {
     final rightArrowImage = SvgPicture.string(svgData);
     final refreshImage = SvgPicture.string(svgData);
     final circleLeftArrowImage = SvgPicture.string(svgData);
-    final circleRedNotice = SvgPicture.string(svgData);
 
     DateTime? selectedStartTime;
     DateTime? selectedEndTime;
@@ -366,7 +355,7 @@ void main() {
       MaterialApp(
         home: Scaffold(
           body: ClueScheduleCalendar(
-            initStartTime: initialDate.subtract(Duration(days: 7)),
+            initStartTime: initialDate.subtract(const Duration(days: 7)),
             initEndTime: initialDate,
             select: (startTime, endTime) {
               selectedStartTime = startTime;
@@ -405,28 +394,15 @@ void main() {
     final rightArrowImage = SvgPicture.string(svgData);
     final refreshImage = SvgPicture.string(svgData);
     final circleLeftArrowImage = SvgPicture.string(svgData);
-    final circleRedNotice = SvgPicture.string(svgData);
-
-    DateTime? selectedStartTime;
-    DateTime? selectedEndTime;
-
-    DateTime? rangedStartTime;
-    DateTime? rangedEndTime;
 
     await tester.pumpWidget(
       MaterialApp(
         home: Scaffold(
           body: ClueScheduleCalendar(
-            initStartTime: initialDate.subtract(Duration(days: 7)),
+            initStartTime: initialDate.subtract(const Duration(days: 7)),
             initEndTime: initialDate,
-            select: (startTime, endTime) {
-              selectedStartTime = startTime;
-              selectedEndTime = endTime;
-            },
-            range: (startTime, endTime) {
-              rangedStartTime = startTime;
-              rangedEndTime = endTime;
-            },
+            select: (startTime, endTime) {},
+            range: (startTime, endTime) {},
             todayText: 'Today',
             errorFontfamily: 'Arial',
             lastMonthString: 'Last Month',

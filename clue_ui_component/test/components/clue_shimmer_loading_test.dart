@@ -8,7 +8,7 @@ void main() {
   testWidgets('ClueShimmerLoading 위젯 테스트', (WidgetTester tester) async {
     // 위젯 빌드
     await tester.pumpWidget(
-      MaterialApp(
+      const MaterialApp(
         home: Scaffold(
           body: ClueShimmerLoading.top(),
         ),
@@ -37,7 +37,7 @@ void main() {
     expect(decoration.borderRadius, const BorderRadius.all(Radius.circular(5)));
 
     // 메인 Container의 크기와 패딩이 올바른지 확인
-    expect(container.constraints, BoxConstraints.tightFor(height: 100));
+    expect(container.constraints, const BoxConstraints.tightFor(height: 100));
     expect(container.padding, const EdgeInsets.all(16));
 
     // 내부 Container들의 색상이 올바른지 확인

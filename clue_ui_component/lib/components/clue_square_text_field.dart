@@ -5,7 +5,7 @@ import 'package:flutter/services.dart';
 
 class ClueSquareTextField extends StatefulWidget {
   const ClueSquareTextField({
-    Key? key,
+    super.key,
     this.width = 250,
     this.autofocus = false,
     this.initialValue,
@@ -22,7 +22,7 @@ class ClueSquareTextField extends StatefulWidget {
     this.enabled = true,
     this.showCounterText = false,
     this.useErrorText = false,
-  }) : super(key: key);
+  });
 
   final double width;
   final bool autofocus;

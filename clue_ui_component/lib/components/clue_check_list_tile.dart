@@ -8,7 +8,7 @@ class ClueCheckListTile extends StatefulWidget {
   final SvgPicture? checkboxOff;
 
   const ClueCheckListTile({
-    Key? key,
+    super.key,
     required this.title,
     this.initValue,
     required this.onChanged,

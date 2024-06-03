@@ -227,10 +227,10 @@ class ThemeTapPage extends StatelessWidget {
 
 class ColorWidget extends StatelessWidget {
   const ColorWidget({
-    Key? key,
+    super.key,
     required this.color,
     required this.code,
-  }) : super(key: key);
+  });
 
   final Color color;
   final String code;

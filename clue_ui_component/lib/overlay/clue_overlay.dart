@@ -328,12 +328,12 @@ class ClueOverlay {
 
 class ClueOkDialog extends StatelessWidget {
   const ClueOkDialog({
-    Key? key,
+    super.key,
     required this.title,
     required this.body,
     this.padding = const EdgeInsets.all(16),
     required this.okButtonText,
-  }) : super(key: key);
+  });
 
   final String title;
   final Widget body;
@@ -413,7 +413,7 @@ class ClueOkDialog extends StatelessWidget {
 
 class ClueOkCancelDialog extends StatelessWidget {
   const ClueOkCancelDialog({
-    Key? key,
+    super.key,
     required this.title,
     required this.body,
     this.padding = const EdgeInsets.all(16),
@@ -422,7 +422,7 @@ class ClueOkCancelDialog extends StatelessWidget {
     required this.cancelButtonText,
     this.okButtonEnable = true,
     this.cancelButtonEnable = true,
-  }) : super(key: key);
+  });
 
   final String title;
   final Widget body;
@@ -506,6 +506,7 @@ class ClueOkCancelDialog extends StatelessWidget {
                             if (okButtonFunction != null) {
                               var result = await okButtonFunction!();
                               if (result == true) {
+                                // ignore: use_build_context_synchronously
                                 Navigator.pop(context, DialogState.ok);
                               }
                             } else {

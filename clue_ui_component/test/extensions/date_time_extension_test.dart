@@ -39,7 +39,7 @@ void main() {
 
     test('applyTimeOfDay method', () {
       DateTime dateTime = DateTime(2024, 2, 7);
-      TimeOfDay timeOfDay = TimeOfDay(hour: 15, minute: 30);
+      TimeOfDay timeOfDay = const TimeOfDay(hour: 15, minute: 30);
       DateTime appliedDateTime = dateTime.applyTimeOfDay(timeOfDay);
 
       expect(appliedDateTime.year, 2024);

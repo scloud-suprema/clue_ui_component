@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:clue_ui_component/components/clue_popup_menu_button.dart';
-import 'package:clue_ui_component/components/clue_divider.dart';
-import 'package:clue_ui_component/themes/themes.dart';
 
 void main() {
   testWidgets('CluePopupMenuButton이 올바르게 렌더링됨', (WidgetTester tester) async {
@@ -15,7 +13,7 @@ void main() {
         home: Scaffold(
           body: CluePopupMenuButton<int>(
             itemList: items,
-            child: Icon(Icons.menu),
+            child: const Icon(Icons.menu),
             onTap: (index) {},
           ),
         ),
@@ -47,7 +45,7 @@ void main() {
         home: Scaffold(
           body: CluePopupMenuButton<int>(
             itemList: items,
-            child: Icon(Icons.menu),
+            child: const Icon(Icons.menu),
             onTap: (index) {
               selectedItemIndex = index;
             },

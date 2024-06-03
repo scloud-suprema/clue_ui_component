@@ -21,14 +21,10 @@ void main() {
   });
 
   testWidgets('ClueText applies target styles and handles taps', (WidgetTester tester) async {
-    bool wasTapped = false;
-
     final targetModel = TargetModel(
       text: 'clickable',
       style: const TextStyle(color: Colors.blue),
-      onTap: () {
-        wasTapped = true;
-      },
+      onTap: () {},
     );
 
     await tester.pumpWidget(

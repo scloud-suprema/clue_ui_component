@@ -1,5 +1,4 @@
 import 'package:clue_ui_component/components/clue_text.dart';
-import 'package:clue_ui_component/main.dart';
 import 'package:clue_ui_component/overlay/clue_overlay.dart';
 import 'package:clue_ui_component/sample_widget_page/dialog_tap_page/dialog_tap_page.dart';
 import 'package:clue_ui_component/sample_widget_page/image_tap_page/image_tap_page.dart';
@@ -51,10 +50,10 @@ class SampleWidgetPageHome extends StatelessWidget {
 
 class CopyTooltipWidget extends StatelessWidget {
   const CopyTooltipWidget({
-    Key? key,
+    super.key,
     required this.code,
     required this.child,
-  }) : super(key: key);
+  });
 
   final String code;
   final Widget child;

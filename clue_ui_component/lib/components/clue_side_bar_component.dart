@@ -8,7 +8,7 @@ import 'package:gap/gap.dart';
 
 class ClueSideBarComponent extends StatefulWidget {
   const ClueSideBarComponent({
-    Key? key,
+    super.key,
     required this.title,
     required this.titleOnTap,
     required this.logo,
@@ -18,7 +18,7 @@ class ClueSideBarComponent extends StatefulWidget {
     required this.child,
     this.leftArrow,
     this.rightArrow,
-  }) : super(key: key);
+  });
 
   final String title;
   final void Function()? titleOnTap;
@@ -116,7 +116,7 @@ class _ClueSideBarComponentState extends State<ClueSideBarComponent> {
                           ),
                         ),
                       );
-                    }).toList()
+                    })
                   ],
                   const Spacer(),
                   const ClueDivider(),
@@ -125,7 +125,7 @@ class _ClueSideBarComponentState extends State<ClueSideBarComponent> {
                     alignment: Alignment.centerRight,
                     padding: const EdgeInsets.symmetric(horizontal: 8),
                     child: InkWell(
-                      key: Key("Icon"),
+                      key: const Key("Icon"),
                       borderRadius: BorderRadius.circular(50),
                       onTap: () {
                         setState(() {

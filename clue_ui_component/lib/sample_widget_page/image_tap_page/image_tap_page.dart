@@ -242,10 +242,10 @@ class ImageTapPage extends StatelessWidget {
 
 class ImageWidget extends StatelessWidget {
   const ImageWidget({
-    Key? key,
+    super.key,
     required this.code,
     required this.myImage,
-  }) : super(key: key);
+  });
 
   final String code;
   final SvgPicture myImage;

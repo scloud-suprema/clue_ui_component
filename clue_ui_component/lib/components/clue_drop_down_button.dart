@@ -11,7 +11,7 @@ class ClueDropDownButton<T, E> extends StatefulWidget {
   final SvgPicture? arrowImage;
 
   const ClueDropDownButton(
-      {Key? key,
+      {super.key,
       this.enabled = true,
       this.selectedKey,
       this.blockKeyList = const [],
@@ -20,8 +20,7 @@ class ClueDropDownButton<T, E> extends StatefulWidget {
       this.borderColor,
       required this.onChanged,
       this.noneText,
-      this.arrowImage})
-      : super(key: key);
+      this.arrowImage});
 
   final bool enabled;
   final T? selectedKey;

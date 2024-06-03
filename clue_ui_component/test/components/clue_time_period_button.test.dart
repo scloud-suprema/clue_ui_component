@@ -4,7 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   testWidgets('ClueTimePeriodButton 초기 값 표시 및 변경 반응 테스트', (WidgetTester tester) async {
-    TimeOfDay initialTime = TimeOfDay(hour: 9, minute: 30);
+    TimeOfDay initialTime = const TimeOfDay(hour: 9, minute: 30);
     TimeOfDay? selectedTime;
 
     await tester.pumpWidget(
@@ -32,7 +32,7 @@ void main() {
     await tester.pumpAndSettle();
     await tester.tap(find.text('pm').last);
     await tester.pumpAndSettle();
-    expect(selectedTime, TimeOfDay(hour: 21, minute: 30)); // 9 PM은 21:30
+    expect(selectedTime, const TimeOfDay(hour: 21, minute: 30)); // 9 PM은 21:30
 
     // // 시간을 9에서 10으로 변경 시뮬레이션
     // await tester.tap(find.text('09hour'));

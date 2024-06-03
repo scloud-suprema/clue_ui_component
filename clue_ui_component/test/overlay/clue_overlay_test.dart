@@ -8,12 +8,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:loader_overlay/loader_overlay.dart';
 
 void main() {
-  const String svgData = '''
-  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="12" cy="12" r="10" stroke="black" stroke-width="2" fill="white" />
-  </svg>
-  ''';
-
   testWidgets('showLoading와 hideLoading가 제대로 작동함', (WidgetTester tester) async {
     await tester.pumpWidget(
       MaterialApp(
@@ -63,7 +57,7 @@ void main() {
             ],
           );
         },
-        home: Scaffold(),
+        home: const Scaffold(),
       ),
     );
 
@@ -97,13 +91,13 @@ void main() {
     await tester.pumpWidget(
       MaterialApp(
         navigatorKey: clueNavigatorKey,
-        home: Scaffold(body: Center(child: Text('Home Page'))),
+        home: const Scaffold(body: Center(child: Text('Home Page'))),
       ),
     );
 
     // 다이얼로그 표시
     ClueOverlay.showClueDialog(
-      dialog: AlertDialog(title: Text('Dialog')),
+      dialog: const AlertDialog(title: Text('Dialog')),
     );
     await tester.pump();
 
@@ -115,15 +109,15 @@ void main() {
     await tester.pumpWidget(
       MaterialApp(
         navigatorKey: clueNavigatorKey,
-        home: Scaffold(body: Center(child: Text('Home Page'))),
+        home: const Scaffold(body: Center(child: Text('Home Page'))),
       ),
     );
 
     // 달력 표시
     ClueOverlay.showCalendarSingle(
       initDateTime: DateTime.now(),
-      minDateTime: DateTime.now().subtract(Duration(days: 365)),
-      maxDateTime: DateTime.now().add(Duration(days: 365)),
+      minDateTime: DateTime.now().subtract(const Duration(days: 365)),
+      maxDateTime: DateTime.now().add(const Duration(days: 365)),
       lastMonthString: 'Previous',
       nextMonthString: 'Next',
       cancelString: 'Cancel',
@@ -147,15 +141,15 @@ void main() {
     await tester.pumpWidget(
       MaterialApp(
         navigatorKey: clueNavigatorKey,
-        home: Scaffold(body: Center(child: Text('Home Page'))),
+        home: const Scaffold(body: Center(child: Text('Home Page'))),
       ),
     );
 
     // 달력 표시
     ClueOverlay.showCalendarSingle(
       initDateTime: DateTime.now(),
-      minDateTime: DateTime.now().subtract(Duration(days: 365)),
-      maxDateTime: DateTime.now().add(Duration(days: 365)),
+      minDateTime: DateTime.now().subtract(const Duration(days: 365)),
+      maxDateTime: DateTime.now().add(const Duration(days: 365)),
       lastMonthString: 'Previous',
       nextMonthString: 'Next',
       cancelString: 'Cancel',
@@ -176,15 +170,15 @@ void main() {
     await tester.pumpWidget(
       MaterialApp(
         navigatorKey: clueNavigatorKey,
-        home: Scaffold(body: Center(child: Text('Home Page'))),
+        home: const Scaffold(body: Center(child: Text('Home Page'))),
       ),
     );
 
     // 달력 표시
     ClueOverlay.showCalendarMulti(
       initDateTime: [DateTime.now()],
-      minDateTime: DateTime.now().subtract(Duration(days: 365)),
-      maxDateTime: DateTime.now().add(Duration(days: 365)),
+      minDateTime: DateTime.now().subtract(const Duration(days: 365)),
+      maxDateTime: DateTime.now().add(const Duration(days: 365)),
       errorFontfamily: 'Arial',
       lastMonthString: 'Previous',
       nextMonthString: 'Next',
@@ -211,15 +205,15 @@ void main() {
     await tester.pumpWidget(
       MaterialApp(
         navigatorKey: clueNavigatorKey,
-        home: Scaffold(body: Center(child: Text('Home Page'))),
+        home: const Scaffold(body: Center(child: Text('Home Page'))),
       ),
     );
 
     // 달력 표시
     ClueOverlay.showCalendarMulti(
       initDateTime: [DateTime.now()],
-      minDateTime: DateTime.now().subtract(Duration(days: 365)),
-      maxDateTime: DateTime.now().add(Duration(days: 365)),
+      minDateTime: DateTime.now().subtract(const Duration(days: 365)),
+      maxDateTime: DateTime.now().add(const Duration(days: 365)),
       errorFontfamily: 'Arial',
       lastMonthString: 'Previous',
       nextMonthString: 'Next',
@@ -246,15 +240,15 @@ void main() {
     await tester.pumpWidget(
       MaterialApp(
         navigatorKey: clueNavigatorKey,
-        home: Scaffold(body: Center(child: Text('Home Page'))),
+        home: const Scaffold(body: Center(child: Text('Home Page'))),
       ),
     );
 
     // 달력 표시
     ClueOverlay.showCalendarRange(
-      initDateTime: (startDate: DateTime.now().subtract(Duration(days: 7)), endDate: DateTime.now()),
-      minDateTime: DateTime.now().subtract(Duration(days: 365)),
-      maxDateTime: DateTime.now().add(Duration(days: 365)),
+      initDateTime: (startDate: DateTime.now().subtract(const Duration(days: 7)), endDate: DateTime.now()),
+      minDateTime: DateTime.now().subtract(const Duration(days: 365)),
+      maxDateTime: DateTime.now().add(const Duration(days: 365)),
       errorFontfamily: 'Arial',
       lastMonthString: 'Previous',
       nextMonthString: 'Next',
@@ -282,15 +276,15 @@ void main() {
     await tester.pumpWidget(
       MaterialApp(
         navigatorKey: clueNavigatorKey,
-        home: Scaffold(body: Center(child: Text('Home Page'))),
+        home: const Scaffold(body: Center(child: Text('Home Page'))),
       ),
     );
 
     // 달력 표시
     ClueOverlay.showCalendarRange(
-      initDateTime: (startDate: DateTime.now().subtract(Duration(days: 7)), endDate: DateTime.now()),
-      minDateTime: DateTime.now().subtract(Duration(days: 365)),
-      maxDateTime: DateTime.now().add(Duration(days: 365)),
+      initDateTime: (startDate: DateTime.now().subtract(const Duration(days: 7)), endDate: DateTime.now()),
+      minDateTime: DateTime.now().subtract(const Duration(days: 365)),
+      maxDateTime: DateTime.now().add(const Duration(days: 365)),
       errorFontfamily: 'Arial',
       lastMonthString: 'Previous',
       nextMonthString: 'Next',
@@ -332,7 +326,7 @@ void main() {
                   showDialog(
                     context: context,
                     builder: (BuildContext context) {
-                      return ClueOkDialog(
+                      return const ClueOkDialog(
                         title: testTitle,
                         body: Text(testBody),
                         okButtonText: testOkButtonText,
@@ -340,7 +334,7 @@ void main() {
                     },
                   );
                 },
-                child: Text('Show Dialog'),
+                child: const Text('Show Dialog'),
               );
             },
           ),
@@ -386,7 +380,7 @@ void main() {
                   showDialog(
                     context: context,
                     builder: (BuildContext context) {
-                      return ClueOkCancelDialog(
+                      return const ClueOkCancelDialog(
                         title: testTitle,
                         body: Text(testBody),
                         okButtonText: testOkButtonText,
@@ -395,7 +389,7 @@ void main() {
                     },
                   );
                 },
-                child: Text('Show Dialog'),
+                child: const Text('Show Dialog'),
               );
             },
           ),
@@ -459,7 +453,7 @@ void main() {
                     builder: (BuildContext context) {
                       return ClueOkCancelDialog(
                         title: testTitle,
-                        body: Text(testBody),
+                        body: const Text(testBody),
                         okButtonText: testOkButtonText,
                         cancelButtonText: testCancelButtonText,
                         okButtonFunction: () async {
@@ -470,7 +464,7 @@ void main() {
                     },
                   );
                 },
-                child: Text('Show Dialog'),
+                child: const Text('Show Dialog'),
               );
             },
           ),
@@ -514,7 +508,7 @@ void main() {
                   showDialog(
                     context: context,
                     builder: (BuildContext context) {
-                      return ClueOkCancelDialog(
+                      return const ClueOkCancelDialog(
                         title: testTitle,
                         body: Text(testBody),
                         okButtonText: testOkButtonText,
@@ -524,7 +518,7 @@ void main() {
                     },
                   );
                 },
-                child: Text('Show Dialog'),
+                child: const Text('Show Dialog'),
               );
             },
           ),
@@ -570,7 +564,7 @@ void main() {
                   showDialog(
                     context: context,
                     builder: (BuildContext context) {
-                      return ClueOkCancelDialog(
+                      return const ClueOkCancelDialog(
                         title: testTitle,
                         body: Text(testBody),
                         okButtonText: testOkButtonText,
@@ -580,7 +574,7 @@ void main() {
                     },
                   );
                 },
-                child: Text('Show Dialog'),
+                child: const Text('Show Dialog'),
               );
             },
           ),
@@ -608,23 +602,21 @@ void main() {
   });
 
   testWidgets('closeBackClueDialog 팝 가능한 경우 테스트', (WidgetTester tester) async {
-    final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
-
     await tester.pumpWidget(
       MaterialApp(
         navigatorKey: clueNavigatorKey,
         home: Scaffold(
-          appBar: AppBar(title: Text('Home')),
+          appBar: AppBar(title: const Text('Home')),
           body: Center(
             child: Builder(
               builder: (context) {
                 return ElevatedButton(
                   onPressed: () {
                     Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => Scaffold(appBar: AppBar(title: Text('Second Page')))),
+                      MaterialPageRoute(builder: (context) => Scaffold(appBar: AppBar(title: const Text('Second Page')))),
                     );
                   },
-                  child: Text('Go to Second Page'),
+                  child: const Text('Go to Second Page'),
                 );
               },
             ),
@@ -649,14 +641,12 @@ void main() {
   });
 
   testWidgets('closeBackClueDialog 팝 불가능한 경우 테스트', (WidgetTester tester) async {
-    final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
-
     await tester.pumpWidget(
       MaterialApp(
         navigatorKey: clueNavigatorKey,
         home: Scaffold(
-          appBar: AppBar(title: Text('Home')),
-          body: Center(child: Text('Home Page')),
+          appBar: AppBar(title: const Text('Home')),
+          body: const Center(child: Text('Home Page')),
         ),
       ),
     );
