@@ -1,3 +1,5 @@
+import 'package:clue_ui_component/clue_navigator_key.dart';
+import 'package:clue_ui_component/clue_ui_component.dart';
 import 'package:clue_ui_component/images.dart';
 import 'package:clue_ui_component/themes/themes.dart';
 import 'package:flutter/widgets.dart';
@@ -41,10 +43,10 @@ class ClueOverlayEntry extends StatelessWidget {
   static OverlayEntry overlayEntry = OverlayEntry(builder: (context) => const ClueOverlayEntry());
 
   /// 팝업 보여주기
-  static void showPopup(Widget title, GlobalKey<NavigatorState> navigatorKey, {Duration duration = const Duration(seconds: 2)}) async {
+  static void showPopup(Widget title, {Duration duration = const Duration(seconds: 2)}) async {
     if (overlayEntry.mounted == false) {
       try {
-        Navigator.of(navigatorKey.currentContext!).overlay!.insert(overlayEntry);
+        Navigator.of(clueNavigatorKey.currentContext!).overlay!.insert(overlayEntry);
         await Future.delayed(const Duration(milliseconds: 50));
       } catch (e) {
         // already overlayEntry

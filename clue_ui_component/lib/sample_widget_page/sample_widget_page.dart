@@ -15,7 +15,6 @@ class SampleWidgetPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      navigatorKey: rootNavigatorKey,
       // locale: context.locale,
       // localizationsDelegates: context.localizationDelegates,
       // supportedLocales: context.supportedLocales,
@@ -65,7 +64,9 @@ class CopyTooltipWidget extends StatelessWidget {
     return InkWell(
       onTap: () {
         Clipboard.setData(ClipboardData(text: code));
-        ClueOverlay.showSuccessToast('코드가 복사되었습니다.', rootNavigatorKey);
+        ClueOverlay.showSuccessToast(
+          '코드가 복사되었습니다.',
+        );
       },
       child: Tooltip(
         message: code,

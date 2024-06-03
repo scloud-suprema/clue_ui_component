@@ -1,3 +1,4 @@
+import 'package:clue_ui_component/clue_navigator_key.dart';
 import 'package:clue_ui_component/extensions/style_extension.dart';
 import 'package:clue_ui_component/images.dart';
 import 'package:flutter_svg/svg.dart';
@@ -12,32 +13,32 @@ import 'package:flutter/material.dart';
 
 class ClueOverlay {
   /// 전역 로딩 시작
-  static void showLoading(GlobalKey<NavigatorState> navigatorKey) {
-    navigatorKey!.currentContext!.loaderOverlay.show();
+  static void showLoading() {
+    clueNavigatorKey.currentContext!.loaderOverlay.show();
   }
 
   /// 전역 로딩 종료
-  static void hideLoading(GlobalKey<NavigatorState> navigatorKey) {
-    navigatorKey!.currentContext!.loaderOverlay.hide();
+  static void hideLoading() {
+    clueNavigatorKey.currentContext!.loaderOverlay.hide();
   }
 
   /// 성공 토스트 메시지 호출
-  static void showSuccessToast(String text, GlobalKey<NavigatorState> navigatorKey, {String? fontfamily, SvgPicture? circleBlueCheck}) {
-    ClueOverlayEntry.showPopup(SuccessToast(text: text, fontfamily: fontfamily, circleBlueCheck: circleBlueCheck), navigatorKey);
+  static void showSuccessToast(String text, {String? fontfamily, SvgPicture? circleBlueCheck}) {
+    ClueOverlayEntry.showPopup(SuccessToast(text: text, fontfamily: fontfamily, circleBlueCheck: circleBlueCheck));
   }
 
   /// 실패 토스트 메시지 호출
-  static void showErrorToast(String text, GlobalKey<NavigatorState> navigatorKey, {String? fontfamily, SvgPicture? circleRedNotice}) {
-    ClueOverlayEntry.showPopup(ErrorToast(text: text, fontfamily: fontfamily, circleRedNotice: circleRedNotice), navigatorKey,
+  static void showErrorToast(String text, {String? fontfamily, SvgPicture? circleRedNotice}) {
+    ClueOverlayEntry.showPopup(ErrorToast(text: text, fontfamily: fontfamily, circleRedNotice: circleRedNotice),
         duration: const Duration(seconds: 3));
   }
 
   /// 다이얼로그 호출
-  static Future<DialogState?> showClueDialog({required Widget dialog, required GlobalKey<NavigatorState> navigatorKey}) async {
+  static Future<DialogState?> showClueDialog({required Widget dialog, required}) async {
     DialogState result = await showDialog(
           routeSettings: const RouteSettings(name: 'showCustomDialog'),
           barrierDismissible: false,
-          context: navigatorKey.currentContext!,
+          context: clueNavigatorKey.currentContext!,
           builder: (context) {
             return dialog;
           },
@@ -46,8 +47,8 @@ class ClueOverlay {
     return result;
   }
 
-  static void closeBackClueDialog(GlobalKey<NavigatorState> navigatorKey) {
-    final navigator = Navigator.of(navigatorKey.currentContext!, rootNavigator: true);
+  static void closeBackClueDialog() {
+    final navigator = Navigator.of(clueNavigatorKey.currentContext!, rootNavigator: true);
     if (navigator.canPop()) {
       navigator.pop();
     }
@@ -61,7 +62,7 @@ class ClueOverlay {
     DateTime? minDateTime,
     // 최대날짜
     DateTime? maxDateTime,
-    required GlobalKey<NavigatorState> navigatorKey,
+    required,
     final String? lastMonthString,
     final String? nextMonthString,
     final String? cancelString,
@@ -70,7 +71,7 @@ class ClueOverlay {
   }) async {
     Set<DateTime> calendarSet = {};
     var result = await showCalendarDatePicker2Dialog(
-      context: navigatorKey.currentContext!,
+      context: clueNavigatorKey.currentContext!,
       // 날짜 초기값
       value: [initDateTime],
       config: CalendarDatePicker2WithActionButtonsConfig(
@@ -103,7 +104,7 @@ class ClueOverlay {
         // 취소 버튼
         cancelButton: TextButton(
           onPressed: () {
-            Navigator.pop(navigatorKey.currentContext!);
+            Navigator.pop(clueNavigatorKey.currentContext!);
           },
           child: Text(
             cancelString ?? "cancel",
@@ -114,9 +115,9 @@ class ClueOverlay {
         okButton: TextButton(
           onPressed: () {
             if (calendarSet.isEmpty) {
-              ClueOverlay.showErrorToast(selectDateString ?? "select_date", navigatorKey);
+              ClueOverlay.showErrorToast(selectDateString ?? "select_date");
             } else {
-              Navigator.pop(navigatorKey.currentContext!, calendarSet.toList());
+              Navigator.pop(clueNavigatorKey.currentContext!, calendarSet.toList());
             }
           },
           child: Text(
@@ -148,7 +149,7 @@ class ClueOverlay {
     DateTime? maxDateTime,
     // 최대 개수
     int selectMaxCount = 5,
-    required GlobalKey<NavigatorState> navigatorKey,
+    required,
     final String? errorFontfamily,
     final String? lastMonthString,
     final String? nextMonthString,
@@ -159,7 +160,7 @@ class ClueOverlay {
   }) async {
     Set<DateTime> calendarSet = {};
     var result = await showCalendarDatePicker2Dialog(
-      context: navigatorKey.currentContext!,
+      context: clueNavigatorKey.currentContext!,
       // 날짜 초기값
       value: initDateTime ?? [],
       config: CalendarDatePicker2WithActionButtonsConfig(
@@ -189,7 +190,7 @@ class ClueOverlay {
         // 취소버튼
         cancelButton: TextButton(
           onPressed: () {
-            Navigator.pop(navigatorKey.currentContext!);
+            Navigator.pop(clueNavigatorKey.currentContext!);
           },
           child: Text(
             cancelString ?? "cancel",
@@ -200,11 +201,11 @@ class ClueOverlay {
         okButton: TextButton(
           onPressed: () {
             if (calendarSet.isEmpty) {
-              ClueOverlay.showErrorToast(selectDateString ?? "select_date", navigatorKey);
+              ClueOverlay.showErrorToast(selectDateString ?? "select_date");
             } else if (calendarSet.length > selectMaxCount) {
-              ClueOverlay.showErrorToast(daysMaxString ?? "days_maximum", navigatorKey);
+              ClueOverlay.showErrorToast(daysMaxString ?? "days_maximum");
             } else {
-              Navigator.pop(navigatorKey.currentContext!, calendarSet.toList());
+              Navigator.pop(clueNavigatorKey.currentContext!, calendarSet.toList());
             }
           },
           child: Text(
@@ -236,7 +237,7 @@ class ClueOverlay {
     DateTime? maxDateTime,
     // 최대 선택 가능기간
     int maxRangeCount = 7,
-    required GlobalKey<NavigatorState> navigatorKey,
+    required,
     final String? errorFontfamily,
     final String? lastMonthString,
     final String? nextMonthString,
@@ -248,7 +249,7 @@ class ClueOverlay {
   }) async {
     Set<DateTime> calendarSet = {};
     var result = await showCalendarDatePicker2Dialog(
-      context: navigatorKey.currentContext!,
+      context: clueNavigatorKey.currentContext!,
       // 날짜 초기값
       value: [initDateTime?.startDate, initDateTime?.endDate],
       config: CalendarDatePicker2WithActionButtonsConfig(
@@ -278,7 +279,7 @@ class ClueOverlay {
         // 취소버튼
         cancelButton: TextButton(
           onPressed: () {
-            Navigator.pop(navigatorKey.currentContext!);
+            Navigator.pop(clueNavigatorKey.currentContext!);
           },
           child: Text(
             cancelString ?? "cancel",
@@ -291,14 +292,14 @@ class ClueOverlay {
             var calendarList = calendarSet.toList();
 
             if (calendarList.isEmpty) {
-              ClueOverlay.showErrorToast(selectDurationString ?? "select_date", navigatorKey);
+              ClueOverlay.showErrorToast(selectDurationString ?? "select_date");
             } else if (calendarList.last.difference(calendarList.first).inDays > maxRangeCount) {
-              ClueOverlay.showErrorToast(daysMaxString ?? "days_maximum", navigatorKey);
+              ClueOverlay.showErrorToast(daysMaxString ?? "days_maximum");
             } else if (calendarList.length == 1) {
               calendarList.add(calendarList[0]);
-              Navigator.pop(navigatorKey.currentContext!, calendarList.toList());
+              Navigator.pop(clueNavigatorKey.currentContext!, calendarList.toList());
             } else {
-              Navigator.pop(navigatorKey.currentContext!, calendarList.toList());
+              Navigator.pop(clueNavigatorKey.currentContext!, calendarList.toList());
             }
           },
           child: Text(

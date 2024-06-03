@@ -29,7 +29,6 @@ void main() {
           appBar: AppBar(title: Text('ClueScheduleCalendar Demo')),
           body: ClueScheduleCalendar(
             key: Key("ClueScheduleCalendar"),
-            navigatorKey: navigatorKey,
             initStartTime: now.subtract(Duration(days: 7)),
             initEndTime: now,
             select: (startTime, endTime) {},
@@ -82,7 +81,6 @@ void main() {
       MaterialApp(
         home: Scaffold(
           body: ClueScheduleCalendar(
-            navigatorKey: GlobalKey<NavigatorState>(),
             initStartTime: initialDate.subtract(Duration(days: 7)),
             initEndTime: initialDate,
             select: (startTime, endTime) {
@@ -141,7 +139,6 @@ void main() {
       MaterialApp(
         home: Scaffold(
           body: ClueScheduleCalendar(
-            navigatorKey: GlobalKey<NavigatorState>(),
             initStartTime: initialDate.subtract(Duration(days: 7)),
             initEndTime: initialDate,
             select: (startTime, endTime) {
@@ -204,7 +201,6 @@ void main() {
       MaterialApp(
         home: Scaffold(
           body: ClueScheduleCalendar(
-            navigatorKey: GlobalKey<NavigatorState>(),
             initStartTime: initialDate.subtract(Duration(days: 7)),
             initEndTime: initialDate,
             select: (startTime, endTime) {
@@ -255,17 +251,14 @@ void main() {
     final refreshImage = SvgPicture.string(svgData);
     final circleLeftArrowImage = SvgPicture.string(svgData);
     final circleRedNotice = SvgPicture.string(svgData);
-    final key = GlobalKey<NavigatorState>();
     DateTime? selectedStartTime;
     DateTime? selectedEndTime;
     bool isCalanerClick = false;
 
     await tester.pumpWidget(
       MaterialApp(
-        navigatorKey: key,
         home: Scaffold(
           body: ClueScheduleCalendar(
-            navigatorKey: key,
             initStartTime: initialDate.subtract(Duration(days: 7)),
             initEndTime: initialDate,
             select: (startTime, endTime) {},
@@ -321,7 +314,6 @@ void main() {
           body: MediaQuery(
             data: MediaQueryData(size: Size(800, 600)),
             child: ClueScheduleCalendar(
-              navigatorKey: navigatorKey,
               initStartTime: now.subtract(Duration(days: 7)),
               initEndTime: now,
               select: (startTime, endTime) {},
@@ -374,7 +366,6 @@ void main() {
       MaterialApp(
         home: Scaffold(
           body: ClueScheduleCalendar(
-            navigatorKey: GlobalKey<NavigatorState>(),
             initStartTime: initialDate.subtract(Duration(days: 7)),
             initEndTime: initialDate,
             select: (startTime, endTime) {
@@ -426,7 +417,6 @@ void main() {
       MaterialApp(
         home: Scaffold(
           body: ClueScheduleCalendar(
-            navigatorKey: GlobalKey<NavigatorState>(),
             initStartTime: initialDate.subtract(Duration(days: 7)),
             initEndTime: initialDate,
             select: (startTime, endTime) {

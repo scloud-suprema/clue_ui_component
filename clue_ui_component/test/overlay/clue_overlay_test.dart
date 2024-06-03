@@ -1,4 +1,5 @@
 // clue_overlay_test.dart
+import 'package:clue_ui_component/clue_navigator_key.dart';
 import 'package:clue_ui_component/overlay/clue_overlay.dart';
 import 'package:clue_ui_component/overlay/clue_overlay_entry.dart';
 import 'package:flutter/material.dart';
@@ -14,10 +15,9 @@ void main() {
   ''';
 
   testWidgets('showLoading와 hideLoading가 제대로 작동함', (WidgetTester tester) async {
-    final navigatorKey = GlobalKey<NavigatorState>();
     await tester.pumpWidget(
       MaterialApp(
-        navigatorKey: navigatorKey,
+        navigatorKey: clueNavigatorKey,
         home: GlobalLoaderOverlay(
           useDefaultLoading: false,
           overlayColor: Colors.black.withOpacity(0.7),
@@ -37,14 +37,14 @@ void main() {
     expect(find.byType(CircularProgressIndicator), findsNothing);
 
     // Show the loading overlay
-    ClueOverlay.showLoading(navigatorKey);
+    ClueOverlay.showLoading();
     await tester.pump(); // Pump to update the widget tree
 
     // The overlay should be visible
     expect(find.byType(CircularProgressIndicator), findsOneWidget);
 
     // Hide the loading overlay
-    ClueOverlay.hideLoading(navigatorKey);
+    ClueOverlay.hideLoading();
     await tester.pump(); // Pump to update the widget tree
 
     // The overlay should no longer be visible
@@ -52,10 +52,9 @@ void main() {
   });
 
   testWidgets('showSuccessToast와 showErrorToast가 제대로 작동함', (WidgetTester tester) async {
-    final navigatorKey = GlobalKey<NavigatorState>();
     await tester.pumpWidget(
       MaterialApp(
-        navigatorKey: navigatorKey,
+        navigatorKey: clueNavigatorKey,
         builder: (context, child) {
           return Overlay(
             initialEntries: [
@@ -79,13 +78,13 @@ void main() {
     final SvgPicture circleRedNotice = SvgPicture.string(svgData);
 
     // showSuccessToast 테스트
-    ClueOverlay.showSuccessToast("Success", navigatorKey, fontfamily: "Arial", circleBlueCheck: circleBlueCheck);
+    ClueOverlay.showSuccessToast("Success", fontfamily: "Arial", circleBlueCheck: circleBlueCheck);
     await tester.pumpAndSettle();
 
     expect(find.text("Success"), findsOneWidget);
 
     // showErrorToast 테스트
-    ClueOverlay.showErrorToast("Error", navigatorKey, fontfamily: "Arial", circleRedNotice: circleRedNotice);
+    ClueOverlay.showErrorToast("Error", fontfamily: "Arial", circleRedNotice: circleRedNotice);
     await tester.pumpAndSettle();
 
     expect(find.text("Error"), findsOneWidget);
@@ -95,11 +94,9 @@ void main() {
   });
 
   testWidgets('showClueDialog가 제대로 작동함', (WidgetTester tester) async {
-    final navigatorKey = GlobalKey<NavigatorState>();
-
     await tester.pumpWidget(
       MaterialApp(
-        navigatorKey: navigatorKey,
+        navigatorKey: clueNavigatorKey,
         home: Scaffold(body: Center(child: Text('Home Page'))),
       ),
     );
@@ -107,7 +104,6 @@ void main() {
     // 다이얼로그 표시
     ClueOverlay.showClueDialog(
       dialog: AlertDialog(title: Text('Dialog')),
-      navigatorKey: navigatorKey,
     );
     await tester.pump();
 
@@ -116,18 +112,15 @@ void main() {
   });
 
   testWidgets('showCalendarSingle가 제대로 작동함', (WidgetTester tester) async {
-    final navigatorKey = GlobalKey<NavigatorState>();
-
     await tester.pumpWidget(
       MaterialApp(
-        navigatorKey: navigatorKey,
+        navigatorKey: clueNavigatorKey,
         home: Scaffold(body: Center(child: Text('Home Page'))),
       ),
     );
 
     // 달력 표시
     ClueOverlay.showCalendarSingle(
-      navigatorKey: navigatorKey,
       initDateTime: DateTime.now(),
       minDateTime: DateTime.now().subtract(Duration(days: 365)),
       maxDateTime: DateTime.now().add(Duration(days: 365)),
@@ -151,18 +144,15 @@ void main() {
   });
 
   testWidgets('showCalendarSingle가 제대로 작동함', (WidgetTester tester) async {
-    final navigatorKey = GlobalKey<NavigatorState>();
-
     await tester.pumpWidget(
       MaterialApp(
-        navigatorKey: navigatorKey,
+        navigatorKey: clueNavigatorKey,
         home: Scaffold(body: Center(child: Text('Home Page'))),
       ),
     );
 
     // 달력 표시
     ClueOverlay.showCalendarSingle(
-      navigatorKey: navigatorKey,
       initDateTime: DateTime.now(),
       minDateTime: DateTime.now().subtract(Duration(days: 365)),
       maxDateTime: DateTime.now().add(Duration(days: 365)),
@@ -183,18 +173,15 @@ void main() {
   });
 
   testWidgets('showCalendarMulti가 제대로 작동함', (WidgetTester tester) async {
-    final navigatorKey = GlobalKey<NavigatorState>();
-
     await tester.pumpWidget(
       MaterialApp(
-        navigatorKey: navigatorKey,
+        navigatorKey: clueNavigatorKey,
         home: Scaffold(body: Center(child: Text('Home Page'))),
       ),
     );
 
     // 달력 표시
     ClueOverlay.showCalendarMulti(
-      navigatorKey: navigatorKey,
       initDateTime: [DateTime.now()],
       minDateTime: DateTime.now().subtract(Duration(days: 365)),
       maxDateTime: DateTime.now().add(Duration(days: 365)),
@@ -221,18 +208,15 @@ void main() {
   });
 
   testWidgets('showCalendarMulti가 제대로 작동함', (WidgetTester tester) async {
-    final navigatorKey = GlobalKey<NavigatorState>();
-
     await tester.pumpWidget(
       MaterialApp(
-        navigatorKey: navigatorKey,
+        navigatorKey: clueNavigatorKey,
         home: Scaffold(body: Center(child: Text('Home Page'))),
       ),
     );
 
     // 달력 표시
     ClueOverlay.showCalendarMulti(
-      navigatorKey: navigatorKey,
       initDateTime: [DateTime.now()],
       minDateTime: DateTime.now().subtract(Duration(days: 365)),
       maxDateTime: DateTime.now().add(Duration(days: 365)),
@@ -259,18 +243,15 @@ void main() {
   });
 
   testWidgets('showCalendarRange가 제대로 작동함', (WidgetTester tester) async {
-    final navigatorKey = GlobalKey<NavigatorState>();
-
     await tester.pumpWidget(
       MaterialApp(
-        navigatorKey: navigatorKey,
+        navigatorKey: clueNavigatorKey,
         home: Scaffold(body: Center(child: Text('Home Page'))),
       ),
     );
 
     // 달력 표시
     ClueOverlay.showCalendarRange(
-      navigatorKey: navigatorKey,
       initDateTime: (startDate: DateTime.now().subtract(Duration(days: 7)), endDate: DateTime.now()),
       minDateTime: DateTime.now().subtract(Duration(days: 365)),
       maxDateTime: DateTime.now().add(Duration(days: 365)),
@@ -298,18 +279,15 @@ void main() {
   });
 
   testWidgets('showCalendarRange가 제대로 작동함', (WidgetTester tester) async {
-    final navigatorKey = GlobalKey<NavigatorState>();
-
     await tester.pumpWidget(
       MaterialApp(
-        navigatorKey: navigatorKey,
+        navigatorKey: clueNavigatorKey,
         home: Scaffold(body: Center(child: Text('Home Page'))),
       ),
     );
 
     // 달력 표시
     ClueOverlay.showCalendarRange(
-      navigatorKey: navigatorKey,
       initDateTime: (startDate: DateTime.now().subtract(Duration(days: 7)), endDate: DateTime.now()),
       minDateTime: DateTime.now().subtract(Duration(days: 365)),
       maxDateTime: DateTime.now().add(Duration(days: 365)),
@@ -345,6 +323,7 @@ void main() {
     // ClueOkDialog 위젯 생성
     await tester.pumpWidget(
       MaterialApp(
+        navigatorKey: clueNavigatorKey,
         home: Scaffold(
           body: Builder(
             builder: (context) {
@@ -398,6 +377,7 @@ void main() {
     // ClueOkCancelDialog 위젯 생성
     await tester.pumpWidget(
       MaterialApp(
+        navigatorKey: clueNavigatorKey,
         home: Scaffold(
           body: Builder(
             builder: (context) {
@@ -468,6 +448,7 @@ void main() {
     // ClueOkCancelDialog 위젯 생성
     await tester.pumpWidget(
       MaterialApp(
+        navigatorKey: clueNavigatorKey,
         home: Scaffold(
           body: Builder(
             builder: (context) {
@@ -524,6 +505,7 @@ void main() {
     // ClueOkCancelDialog 위젯 생성
     await tester.pumpWidget(
       MaterialApp(
+        navigatorKey: clueNavigatorKey,
         home: Scaffold(
           body: Builder(
             builder: (context) {
@@ -579,6 +561,7 @@ void main() {
     // ClueOkCancelDialog 위젯 생성
     await tester.pumpWidget(
       MaterialApp(
+        navigatorKey: clueNavigatorKey,
         home: Scaffold(
           body: Builder(
             builder: (context) {
@@ -629,7 +612,7 @@ void main() {
 
     await tester.pumpWidget(
       MaterialApp(
-        navigatorKey: navigatorKey,
+        navigatorKey: clueNavigatorKey,
         home: Scaffold(
           appBar: AppBar(title: Text('Home')),
           body: Center(
@@ -658,7 +641,7 @@ void main() {
     expect(find.text('Second Page'), findsOneWidget);
 
     // closeBackClueDialog 호출
-    ClueOverlay.closeBackClueDialog(navigatorKey);
+    ClueOverlay.closeBackClueDialog();
     await tester.pumpAndSettle();
 
     // 홈 화면으로 돌아왔는지 확인
@@ -670,7 +653,7 @@ void main() {
 
     await tester.pumpWidget(
       MaterialApp(
-        navigatorKey: navigatorKey,
+        navigatorKey: clueNavigatorKey,
         home: Scaffold(
           appBar: AppBar(title: Text('Home')),
           body: Center(child: Text('Home Page')),
@@ -682,7 +665,7 @@ void main() {
     expect(find.text('Home Page'), findsOneWidget);
 
     // closeBackClueDialog 호출
-    ClueOverlay.closeBackClueDialog(navigatorKey);
+    ClueOverlay.closeBackClueDialog();
     await tester.pumpAndSettle();
 
     // 여전히 홈 화면인지 확인 (팝 불가능한 경우)

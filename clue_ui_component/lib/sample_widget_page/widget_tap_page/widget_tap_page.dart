@@ -519,7 +519,9 @@ class WidgetTapPage extends StatelessWidget {
                     '회의6',
                   ].toIndexKeyMap(),
                   onChanged: (key) {
-                    ClueOverlay.showSuccessToast('key:$key', rootNavigatorKey);
+                    ClueOverlay.showSuccessToast(
+                      'key:$key',
+                    );
                   },
                 ),
               ),
@@ -541,7 +543,9 @@ class WidgetTapPage extends StatelessWidget {
                     '6층 공용부',
                   ].toIndexKeyMap(),
                   onChanged: (selectedIndexList, selectedValueList) {
-                    ClueOverlay.showSuccessToast('index:$selectedIndexList / value:$selectedValueList', rootNavigatorKey);
+                    ClueOverlay.showSuccessToast(
+                      'index:$selectedIndexList / value:$selectedValueList',
+                    );
                   },
                   allSelectText: 'all',
                   notSelectText: 'not_selected',
