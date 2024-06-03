@@ -1,7 +1,9 @@
+version: 1.0.1
 name: clue_ui_component
-description: "A new Flutter package project."
-version: 0.0.1
-homepage:
+description: Clue Ui Component
+publisher: suprema.scloud@mysuprema.com
+homepage: https://component.moon.supremainc.com/
+repository: https://github.com/scloud-suprema/clueUiComponent
 
 environment:
   sdk: '>=3.3.3 <4.0.0'
