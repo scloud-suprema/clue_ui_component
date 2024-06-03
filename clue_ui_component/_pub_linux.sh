@@ -1,33 +1,21 @@
 #!/bin/sh
-# jq가 설치되어 있는지 확인하고 설치합니다.
-if ! command -v jq &> /dev/null; then
-  echo "jq is not installed. Installing jq..."
-  npm install -g jq
-  if [ $? -ne 0 ]; then
-    echo "Failed to install jq."
-    exit 1
-  fi
-else
-  echo "jq is already installed."
-fi
-
 UPDATE_TYPE=$1
+echo "TYPE : $UPDATE_TYPE"
+PACKAGE_NAME=clue_ui_component
 
-echo "Type $UPDATE_TYPE"
-# 패키지 이름을 인자로 받습니다.
-PACKAGE_NAME="clue_ui_component"
+# URL 설정
+URL="https://pub.dev/packages/$PACKAGE_NAME"
 
-# pub.dev API를 호출하여 패키지 정보를 가져옵니다.
-API_URL="https://pub.dev/api/packages/$PACKAGE_NAME"
+# 페이지 내용 가져오기
+page_content=$(curl -s $URL)
+# echo "Page : $page_content"
 
-# curl로 API 호출하고 jq로 JSON 응답을 파싱하여 최신 버전 정보를 가져옵니다.
-LATEST_VERSION=$(curl -s $API_URL | jq -r '.latest.version')
+# div.h1 태그의 title 클래스 값 추출
+LATEST_VERSION=$(echo "$page_content" | sed -n 's/.*<h1 class="title">\([^<]*\).*/\1/p')
+LATEST_VERSION=$(echo "$title_value" | cut -d ' ' -f 2)
 
-# API 호출이 성공했는지 확인합니다.
-if [ -z "$LATEST_VERSION" ]; then
-  echo "Failed to fetch package info or package does not exist."
-  exit 1
-fi
+# 결과 출력
+echo "Version: $title_value"
 
 # 최신 버전 정보를 출력합니다.
 echo "The latest version of $PACKAGE_NAME is $LATEST_VERSION"

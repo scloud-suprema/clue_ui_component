@@ -17,7 +17,6 @@ enum ArrowDirection {
 }
 
 class ClueScheduleCalendar extends StatefulWidget {
-  final GlobalKey<NavigatorState> navigatorKey;
   final Widget? headerLeftWidget;
   final Widget? headerRightWidget;
   final DateTime initStartTime;
@@ -46,7 +45,6 @@ class ClueScheduleCalendar extends StatefulWidget {
     super.key,
     this.headerLeftWidget,
     this.headerRightWidget,
-    required this.navigatorKey,
     required this.errorFontfamily,
     required this.lastMonthString,
     required this.nextMonthString,

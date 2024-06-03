@@ -1,22 +1,44 @@
-import 'package:clue_ui_component/components/clue_circular_loading.dart';
-import 'package:clue_ui_component/sample_widget_page/sample_widget_page.dart';
 import 'package:flutter/material.dart';
-import 'package:loader_overlay/loader_overlay.dart';
 
-final GlobalKey<NavigatorState> rootNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'root');
+// import clue component module
+import 'package:clue_ui_component/clue_ui_component.dart';
+
 void main() {
-  runApp(MyApp());
+  // runApp(MyApp());
+
+  runApp(SampleApp());
 }
 
-class MyApp extends StatelessWidget {
+// class MyApp extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return GlobalLoaderOverlay(
+//       useDefaultLoading: false,
+//       overlayWidgetBuilder: (dynamic progress) {
+//         return const Center(child: ClueCircularLoading());
+//       },
+//       child: const SampleWidgetPage(),
+//     );
+//   }
+// }
+
+class SampleApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return GlobalLoaderOverlay(
-      useDefaultLoading: false,
-      overlayWidgetBuilder: (dynamic progress) {
-        return const Center(child: ClueCircularLoading());
-      },
-      child: const SampleWidgetPage(),
+    return MaterialApp(
+      navigatorKey: clueNavigatorKey, // << Add this line
+      home: Scaffold(
+        body: Center(
+          child: ClueDropDownButton(
+            itemMap: const {"Key1": "value1", "Key2": "value2"},
+            onChanged: (String key) {
+              ClueOverlay.showSuccessToast(
+                key,
+              );
+            },
+          ),
+        ),
+      ),
     );
   }
 }

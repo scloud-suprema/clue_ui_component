@@ -30,9 +30,9 @@ class DialogTapPage extends StatelessWidget {
             children: [
               OutlinedButton(
                 onPressed: () async {
-                  ClueOverlay.showLoading(rootNavigatorKey);
+                  ClueOverlay.showLoading();
                   await Future.delayed(const Duration(seconds: 2));
-                  ClueOverlay.hideLoading(rootNavigatorKey);
+                  ClueOverlay.hideLoading();
                 },
                 child: const ClueText('show & hide Loading'),
               ),
@@ -49,13 +49,17 @@ class DialogTapPage extends StatelessWidget {
             children: [
               OutlinedButton(
                 onPressed: () async {
-                  ClueOverlay.showSuccessToast('성공 입니다.', rootNavigatorKey);
+                  ClueOverlay.showSuccessToast(
+                    '성공 입니다.',
+                  );
                 },
                 child: const ClueText('성공 토스트 메시지'),
               ),
               OutlinedButton(
                 onPressed: () async {
-                  ClueOverlay.showErrorToast('실패 입니다.', rootNavigatorKey);
+                  ClueOverlay.showErrorToast(
+                    '실패 입니다.',
+                  );
                 },
                 child: const ClueText('실패 토스트 메시지'),
               ),
@@ -90,12 +94,15 @@ class DialogTapPage extends StatelessWidget {
                       ),
                       okButtonText: '확인',
                     ),
-                    navigatorKey: rootNavigatorKey,
                   );
                   if (result == DialogState.ok) {
-                    ClueOverlay.showSuccessToast('DialogState.ok', rootNavigatorKey);
+                    ClueOverlay.showSuccessToast(
+                      'DialogState.ok',
+                    );
                   } else {
-                    ClueOverlay.showErrorToast('DialogState.cancel', rootNavigatorKey);
+                    ClueOverlay.showErrorToast(
+                      'DialogState.cancel',
+                    );
                   }
                 },
                 child: const ClueText('OK Dialog'),
@@ -121,12 +128,15 @@ class DialogTapPage extends StatelessWidget {
                       okButtonText: '확인',
                       cancelButtonText: '취소',
                     ),
-                    navigatorKey: rootNavigatorKey,
                   );
                   if (result == DialogState.ok) {
-                    ClueOverlay.showSuccessToast('DialogState.ok', rootNavigatorKey);
+                    ClueOverlay.showSuccessToast(
+                      'DialogState.ok',
+                    );
                   } else {
-                    ClueOverlay.showErrorToast('DialogState.cancel', rootNavigatorKey);
+                    ClueOverlay.showErrorToast(
+                      'DialogState.cancel',
+                    );
                   }
                 },
                 child: const ClueText('OK Cancel Dialog'),
@@ -144,11 +154,17 @@ class DialogTapPage extends StatelessWidget {
             children: [
               OutlinedButton(
                 onPressed: () async {
-                  var results = await ClueOverlay.showCalendarSingle(initDateTime: DateTime.now(), navigatorKey: rootNavigatorKey);
+                  var results = await ClueOverlay.showCalendarSingle(
+                    initDateTime: DateTime.now(),
+                  );
                   if (results == null) {
-                    ClueOverlay.showErrorToast('result : $results', rootNavigatorKey);
+                    ClueOverlay.showErrorToast(
+                      'result : $results',
+                    );
                   } else {
-                    ClueOverlay.showSuccessToast('result : $results', rootNavigatorKey);
+                    ClueOverlay.showSuccessToast(
+                      'result : $results',
+                    );
                   }
                 },
                 child: const ClueText('showCalendarSingle'),
@@ -156,17 +172,23 @@ class DialogTapPage extends StatelessWidget {
               const Gap(8),
               OutlinedButton(
                 onPressed: () async {
-                  var results = await ClueOverlay.showCalendarMulti(initDateTime: [
-                    DateTime.now().subtract(const Duration(days: 2)),
-                    DateTime.now().subtract(const Duration(days: 1)),
-                    DateTime.now(),
-                    DateTime.now().add(const Duration(days: 1)),
-                    DateTime.now().add(const Duration(days: 2)),
-                  ], navigatorKey: rootNavigatorKey);
+                  var results = await ClueOverlay.showCalendarMulti(
+                    initDateTime: [
+                      DateTime.now().subtract(const Duration(days: 2)),
+                      DateTime.now().subtract(const Duration(days: 1)),
+                      DateTime.now(),
+                      DateTime.now().add(const Duration(days: 1)),
+                      DateTime.now().add(const Duration(days: 2)),
+                    ],
+                  );
                   if (results == null) {
-                    ClueOverlay.showErrorToast('result : $results', rootNavigatorKey);
+                    ClueOverlay.showErrorToast(
+                      'result : $results',
+                    );
                   } else {
-                    ClueOverlay.showSuccessToast('result : $results', rootNavigatorKey);
+                    ClueOverlay.showSuccessToast(
+                      'result : $results',
+                    );
                   }
                 },
                 child: const ClueText('showCalendarMulti'),
@@ -174,14 +196,20 @@ class DialogTapPage extends StatelessWidget {
               const Gap(8),
               OutlinedButton(
                 onPressed: () async {
-                  var results = await ClueOverlay.showCalendarRange(initDateTime: (
-                    startDate: DateTime.now().subtract(const Duration(days: 2)),
-                    endDate: DateTime.now().add(const Duration(days: 2)),
-                  ), navigatorKey: rootNavigatorKey);
+                  var results = await ClueOverlay.showCalendarRange(
+                    initDateTime: (
+                      startDate: DateTime.now().subtract(const Duration(days: 2)),
+                      endDate: DateTime.now().add(const Duration(days: 2)),
+                    ),
+                  );
                   if (results == null) {
-                    ClueOverlay.showErrorToast('result : $results', rootNavigatorKey);
+                    ClueOverlay.showErrorToast(
+                      'result : $results',
+                    );
                   } else {
-                    ClueOverlay.showSuccessToast('result : $results', rootNavigatorKey);
+                    ClueOverlay.showSuccessToast(
+                      'result : $results',
+                    );
                   }
                 },
                 child: const ClueText('showCalendarRange'),
@@ -205,9 +233,13 @@ class DialogTapPage extends StatelessWidget {
                     initialEntryMode: TimePickerEntryMode.inputOnly,
                   );
                   if (results == null) {
-                    ClueOverlay.showErrorToast('result : $results', rootNavigatorKey);
+                    ClueOverlay.showErrorToast(
+                      'result : $results',
+                    );
                   } else {
-                    ClueOverlay.showSuccessToast('result : $results', rootNavigatorKey);
+                    ClueOverlay.showSuccessToast(
+                      'result : $results',
+                    );
                   }
                 },
                 child: const ClueText('showTimePicker'),
@@ -233,7 +265,9 @@ class DialogTapPage extends StatelessWidget {
                   ServerErrorCode.v9999: ServerErrorCode.v9999.locale,
                 },
                 onChanged: (key) {
-                  ClueOverlay.showSuccessToast('key:$key', rootNavigatorKey);
+                  ClueOverlay.showSuccessToast(
+                    'key:$key',
+                  );
                 },
               ),
               ClueDropDownButton(
@@ -249,7 +283,9 @@ class DialogTapPage extends StatelessWidget {
                   '상태6',
                 ].toIndexKeyMap(),
                 onChanged: (index) {
-                  ClueOverlay.showSuccessToast('index:$index', rootNavigatorKey);
+                  ClueOverlay.showSuccessToast(
+                    'index:$index',
+                  );
                 },
               ),
             ],
@@ -274,7 +310,9 @@ class DialogTapPage extends StatelessWidget {
                   '3층 공용부',
                 ].toIndexKeyMap(),
                 onChanged: (selectedIndexList, selectedValueList) {
-                  ClueOverlay.showSuccessToast('index:$selectedIndexList / value:$selectedValueList', rootNavigatorKey);
+                  ClueOverlay.showSuccessToast(
+                    'index:$selectedIndexList / value:$selectedValueList',
+                  );
                 },
                 allSelectText: '전체선택',
                 notSelectText: '선택안함',
@@ -290,7 +328,9 @@ class DialogTapPage extends StatelessWidget {
                 },
                 blockKeyList: const [1515],
                 onChanged: (selectedIndexList, selectedValueList) {
-                  ClueOverlay.showSuccessToast('index:$selectedIndexList / value:$selectedValueList', rootNavigatorKey);
+                  ClueOverlay.showSuccessToast(
+                    'index:$selectedIndexList / value:$selectedValueList',
+                  );
                 },
                 allSelectText: '전체선택',
                 notSelectText: '선택안함',
