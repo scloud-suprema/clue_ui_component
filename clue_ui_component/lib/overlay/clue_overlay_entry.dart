@@ -1,7 +1,4 @@
-import 'package:clue_ui_component/clue_navigator_key.dart';
 import 'package:clue_ui_component/clue_ui_component.dart';
-import 'package:clue_ui_component/images.dart';
-import 'package:clue_ui_component/themes/themes.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -82,11 +79,10 @@ class ClueOverlayEntry extends StatelessWidget {
 /// Animated Item
 class _AnimatedListItem extends StatelessWidget {
   const _AnimatedListItem({
-    Key? key,
     required this.item,
     required this.animation,
     required this.index,
-  }) : super(key: key);
+  });
 
   final Widget item;
   final Animation<double> animation;
@@ -112,7 +108,7 @@ class _AnimatedListItem extends StatelessWidget {
 }
 
 class SuccessToast extends StatelessWidget {
-  const SuccessToast({Key? key, required this.text, this.fontfamily, this.circleBlueCheck}) : super(key: key);
+  const SuccessToast({super.key, required this.text, this.fontfamily, this.circleBlueCheck});
   final SvgPicture? circleBlueCheck;
   final String text;
   final String? fontfamily;
@@ -139,8 +135,9 @@ class SuccessToast extends StatelessWidget {
   }
 }
 
+// ignore: must_be_immutable
 class ErrorToast extends StatelessWidget {
-  ErrorToast({Key? key, required this.text, this.fontfamily, this.circleRedNotice}) : super(key: key);
+  ErrorToast({super.key, required this.text, this.fontfamily, this.circleRedNotice});
 
   final String text;
   final String? fontfamily;

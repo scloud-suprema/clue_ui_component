@@ -15,9 +15,7 @@ import 'package:clue_ui_component/components/clue_time_period_button.dart';
 import 'package:clue_ui_component/extensions/list_extension.dart';
 import 'package:clue_ui_component/extensions/style_extension.dart';
 import 'package:clue_ui_component/images.dart';
-import 'package:clue_ui_component/main.dart';
 import 'package:clue_ui_component/overlay/clue_overlay.dart';
-import 'package:clue_ui_component/themes/text_style.dart';
 import 'package:clue_ui_component/themes/themes.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
@@ -300,7 +298,7 @@ class WidgetTapPage extends StatelessWidget {
                     children: [
                       MyImages.monitoring,
                       const SizedBox(width: 16),
-                      ClueText('선택 삭제'),
+                      const ClueText('선택 삭제'),
                     ],
                   ),
                   Row(

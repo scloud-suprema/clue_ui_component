@@ -7,12 +7,12 @@ import 'package:gap/gap.dart';
 
 class ClueTimePeriodButton extends StatefulWidget {
   const ClueTimePeriodButton({
-    Key? key,
+    super.key,
     required this.initValue,
     required this.onChanged,
     this.borderColor,
     required this.timePeriodStatus,
-  }) : super(key: key);
+  });
 
   final TimeOfDay initValue;
   final void Function(TimeOfDay value) onChanged;

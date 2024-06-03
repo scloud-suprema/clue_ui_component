@@ -7,6 +7,7 @@ import 'package:clue_ui_component/themes/themes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+// ignore: must_be_immutable
 class ClueDropDownCheckButton<T, E> extends StatefulWidget {
   SvgPicture? checkboxOn;
   SvgPicture? checkboxOff;
@@ -118,7 +119,7 @@ class ClueDropDownCheckListState<T, E> extends State<ClueDropDownCheckButton<T, 
                       ] else ...[
                         if (deselectAll) ...[
                           ClueText(
-                            widget.emptyIsAll ? widget.allSelectText ?? "" : widget.notSelectText ?? "",
+                            widget.emptyIsAll ? widget.allSelectText : widget.notSelectText,
                             style: MyTextStyle.size14.w500.xFF000000,
                           ),
                         ] else ...[

@@ -8,7 +8,7 @@ void main() {
     bool isChecked = false;
 
     // 유효한 SVG 데이터를 포함하는 SvgPicture를 만듭니다.
-    final String validSvgData = '''
+    const String validSvgData = '''
     <svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
       <rect width="100" height="100" fill="black"/>
     </svg>

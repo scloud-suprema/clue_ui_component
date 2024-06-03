@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class ClueDecoratedButton extends StatelessWidget {
   const ClueDecoratedButton({
-    Key? key,
+    super.key,
     this.width,
     this.height,
     this.padding = EdgeInsets.zero,
@@ -11,10 +11,10 @@ class ClueDecoratedButton extends StatelessWidget {
     required this.child,
     this.color,
     this.borderColor,
-  }) : super(key: key);
+  });
 
   const ClueDecoratedButton.icon30({
-    Key? key,
+    super.key,
     this.width = 30,
     this.height = 30,
     this.padding = EdgeInsets.zero,
@@ -22,10 +22,10 @@ class ClueDecoratedButton extends StatelessWidget {
     required this.child,
     this.color,
     this.borderColor,
-  }) : super(key: key);
+  });
 
   const ClueDecoratedButton.icon40({
-    Key? key,
+    super.key,
     this.width = 40,
     this.height = 40,
     this.padding = EdgeInsets.zero,
@@ -33,10 +33,10 @@ class ClueDecoratedButton extends StatelessWidget {
     required this.child,
     this.color,
     this.borderColor,
-  }) : super(key: key);
+  });
 
   const ClueDecoratedButton.text({
-    Key? key,
+    super.key,
     this.width,
     this.height,
     this.padding = const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
@@ -44,7 +44,7 @@ class ClueDecoratedButton extends StatelessWidget {
     required this.child,
     this.color,
     this.borderColor,
-  }) : super(key: key);
+  });
 
   final double? width;
   final double? height;

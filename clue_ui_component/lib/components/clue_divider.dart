@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 
 class ClueDivider extends StatelessWidget {
   const ClueDivider({
-    Key? key,
+    super.key,
     this.color = MyColors.xFFE2E8F0,
   });
 
   const ClueDivider.white({
-    Key? key,
+    super.key,
     this.color = MyColors.xFFFFFFFF,
   });
 

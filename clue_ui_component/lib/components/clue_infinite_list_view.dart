@@ -1,5 +1,4 @@
 import 'package:clue_ui_component/components/clue_circular_loading.dart';
-import 'package:clue_ui_component/themes/themes.dart';
 import 'package:flutter/material.dart';
 
 class ClueInfiniteListView<T> extends StatelessWidget {

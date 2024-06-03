@@ -18,9 +18,9 @@ void main() {
             itemList: items,
             itemBuilder: (item) => Container(
               key: Key(item),
-              padding: EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(8.0),
               color: Colors.blue,
-              child: Text(item, style: TextStyle(color: Colors.white)),
+              child: Text(item, style: const TextStyle(color: Colors.white)),
             ),
             endOfScrollCallBack: () {},
             noMoreWidget: const Text('더 이상 항목이 없습니다.'),
@@ -56,9 +56,9 @@ void main() {
             itemList: items,
             itemBuilder: (item) => Container(
               key: Key(item),
-              padding: EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(8.0),
               color: Colors.blue,
-              child: Text(item, style: TextStyle(color: Colors.white)),
+              child: Text(item, style: const TextStyle(color: Colors.white)),
             ),
             endOfScrollCallBack: () {},
             noMoreWidget: const Text('더 이상 항목이 없습니다.'),
@@ -92,9 +92,9 @@ void main() {
             itemList: items,
             itemBuilder: (item) => Container(
               key: Key(item),
-              padding: EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(8.0),
               color: Colors.blue,
-              child: Text(item, style: TextStyle(color: Colors.white)),
+              child: Text(item, style: const TextStyle(color: Colors.white)),
             ),
             endOfScrollCallBack: () {
               endOfScrollCalled = true;

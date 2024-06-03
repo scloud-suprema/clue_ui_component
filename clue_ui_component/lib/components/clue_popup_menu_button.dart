@@ -20,13 +20,13 @@ enum MenuAlign {
 
 class CluePopupMenuButton<T> extends StatefulWidget {
   const CluePopupMenuButton({
-    Key? key,
+    super.key,
     this.itemList = const [],
     this.menuWidth = 130,
     this.menuAlign = MenuAlign.center,
     required this.child,
     required this.onTap,
-  }) : super(key: key);
+  });
 
   final initIndex = 0;
   final List<Widget> itemList;

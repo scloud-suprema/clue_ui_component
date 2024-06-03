@@ -5,9 +5,9 @@ import 'package:flutter_test/flutter_test.dart';
 void main() {
   testWidgets('ClueListTile이 올바르게 렌더링됨', (WidgetTester tester) async {
     // 기본 데이터를 설정
-    final leftWidget = Container(key: Key('leftWidget'), width: 50, height: 50, color: Colors.red);
-    final centerWidget = Container(key: Key('centerWidget'), width: 50, height: 50, color: Colors.green);
-    final rightWidget = Container(key: Key('rightWidget'), width: 50, height: 50, color: Colors.blue);
+    final leftWidget = Container(key: const Key('leftWidget'), width: 50, height: 50, color: Colors.red);
+    final centerWidget = Container(key: const Key('centerWidget'), width: 50, height: 50, color: Colors.green);
+    final rightWidget = Container(key: const Key('rightWidget'), width: 50, height: 50, color: Colors.blue);
 
     // ClueListTile 위젯 빌드
     await tester.pumpWidget(
@@ -27,9 +27,9 @@ void main() {
     expect(clueListTile, findsOneWidget);
 
     // leftWidget, centerWidget, rightWidget이 올바르게 렌더링되는지 확인
-    expect(find.byKey(Key('leftWidget')), findsOneWidget);
-    expect(find.byKey(Key('centerWidget')), findsOneWidget);
-    expect(find.byKey(Key('rightWidget')), findsOneWidget);
+    expect(find.byKey(const Key('leftWidget')), findsOneWidget);
+    expect(find.byKey(const Key('centerWidget')), findsOneWidget);
+    expect(find.byKey(const Key('rightWidget')), findsOneWidget);
   });
 
   testWidgets('ClueListTile 탭 이벤트가 제대로 호출됨', (WidgetTester tester) async {
@@ -40,9 +40,9 @@ void main() {
       MaterialApp(
         home: Scaffold(
           body: ClueListTile(
-            leftWidget: Text('Left'),
-            centerWidget: Text('Center'),
-            rightWidget: Text('Right'),
+            leftWidget: const Text('Left'),
+            centerWidget: const Text('Center'),
+            rightWidget: const Text('Right'),
             onTap: () {
               wasTapped = true;
             },

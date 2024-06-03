@@ -6,7 +6,7 @@ import 'package:flutter_test/flutter_test.dart';
 void main() {
   group('TextStyle Extensions Tests', () {
     test('FontWeightExtension 적용 테스트', () {
-      TextStyle style = TextStyle();
+      TextStyle style = const TextStyle();
 
       expect(style.w300.fontWeight, MyFontWeight.w300);
       expect(style.w500.fontWeight, MyFontWeight.w500);
@@ -14,7 +14,7 @@ void main() {
     });
 
     test('FontColorExtension 적용 테스트', () {
-      TextStyle style = TextStyle();
+      TextStyle style = const TextStyle();
 
       expect(style.xFF000000.color, MyColors.xFF000000);
       expect(style.xFF7D7D7D.color, MyColors.xFF7D7D7D);
@@ -39,7 +39,7 @@ void main() {
     });
 
     test('FontFamilyExtension 적용 테스트', () {
-      TextStyle style = TextStyle();
+      TextStyle style = const TextStyle();
 
       expect(style.notoSansKR.fontFamily, MyFontFamily.notoSansKR);
       expect(style.roboto.fontFamily, MyFontFamily.roboto);
@@ -47,7 +47,7 @@ void main() {
     });
 
     test('TextStyleHeightExtension 적용 테스트', () {
-      TextStyle style = TextStyle();
+      TextStyle style = const TextStyle();
 
       expect(style.h1_0.height, 1.0);
       expect(style.h1_5.height, 1.5);
@@ -55,7 +55,7 @@ void main() {
     });
 
     test('TextStyleOtherExtension 적용 테스트', () {
-      TextStyle style = TextStyle();
+      TextStyle style = const TextStyle();
 
       expect(style.underLine.decoration, TextDecoration.underline);
       expect(style.underLine.decorationColor, MyColors.xFF6682FF);

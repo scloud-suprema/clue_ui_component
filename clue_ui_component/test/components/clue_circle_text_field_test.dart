@@ -127,10 +127,10 @@ void main() {
 
   testWidgets('ClueCircleTextField shows suffix icon', (WidgetTester tester) async {
     await tester.pumpWidget(
-      MaterialApp(
+      const MaterialApp(
         home: Scaffold(
           body: ClueCircleTextField(
-            suffixIcon: const Icon(Icons.clear),
+            suffixIcon: Icon(Icons.clear),
           ),
         ),
       ),

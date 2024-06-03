@@ -1,6 +1,4 @@
 import 'package:clue_ui_component/components/clue_square_text_field.dart';
-import 'package:clue_ui_component/extensions/style_extension.dart';
-import 'package:clue_ui_component/themes/themes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -53,7 +51,7 @@ void main() {
           width: 300,
           obscureText: true,
           suffixIcon: IconButton(
-            icon: Icon(Icons.visibility),
+            icon: const Icon(Icons.visibility),
             onPressed: () {},
           ),
           showCounterText: true,

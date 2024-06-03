@@ -19,11 +19,11 @@ void main() {
 
   testWidgets('ClueSideBarComponent 위젯 테스트', (WidgetTester tester) async {
     // 테스트를 위한 예제 데이터 생성
-    final String title = "Example Title";
-    final String logoTitle = "Logo Title";
+    const String title = "Example Title";
+    const String logoTitle = "Logo Title";
     final List<ClueSideBarInfo> infoList = [
-      ClueSideBarInfo(title: "Info Title 1", subTitle: "Info SubTitle 1"),
-      ClueSideBarInfo(title: "Info Title 2", subTitle: "Info SubTitle 2"),
+      const ClueSideBarInfo(title: "Info Title 1", subTitle: "Info SubTitle 1"),
+      const ClueSideBarInfo(title: "Info Title 2", subTitle: "Info SubTitle 2"),
     ];
     final List<ClueSideBarItem> itemList = [
       ClueSideBarItem(
@@ -35,7 +35,7 @@ void main() {
         title: "Item Title 2",
       ),
     ];
-    final Widget child = Center(child: Text("Main Content"));
+    const Widget child = Center(child: Text("Main Content"));
     const Widget leftWidget = MyImages.leftArrow;
     const Widget rightwidget = MyImages.rightArrow;
     // 테스트 위젯 빌드
@@ -49,9 +49,9 @@ void main() {
           logoTitle: logoTitle,
           infoList: infoList,
           itemList: itemList,
-          child: child,
           leftArrow: leftWidget,
           rightArrow: rightwidget,
+          child: child,
         ),
       ),
     );
@@ -72,7 +72,7 @@ void main() {
 
     // // 애니메이션이 시작되었을 때, 사이드바의 넓이가 줄어드는지 확인
     final initialWidth = tester.getSize(find.byType(AnimatedContainer)).width;
-    await tester.tap(find.byKey(Key("Icon")));
+    await tester.tap(find.byKey(const Key("Icon")));
     await tester.pump(); // 애니메이션 시작
     await tester.pump(const Duration(milliseconds: 300)); // 애니메이션 끝날 때까지 기다림
 

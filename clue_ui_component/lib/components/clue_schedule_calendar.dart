@@ -2,7 +2,6 @@ import 'package:clue_ui_component/components/clue_decorated_button.dart';
 import 'package:clue_ui_component/extensions/date_time_extension.dart';
 import 'package:clue_ui_component/extensions/style_extension.dart';
 import 'package:clue_ui_component/images.dart';
-import 'package:clue_ui_component/overlay/clue_overlay.dart';
 import 'package:clue_ui_component/themes/themes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -16,6 +15,7 @@ enum ArrowDirection {
   after,
 }
 
+// ignore: must_be_immutable
 class ClueScheduleCalendar extends StatefulWidget {
   final Widget? headerLeftWidget;
   final Widget? headerRightWidget;

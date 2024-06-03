@@ -7,12 +7,12 @@ class ClueText extends StatelessWidget {
   const ClueText(
     this.text, {
     this.isRequired = false,
-    Key? key,
+    super.key,
     this.style = textStyle,
     this.textAlign = TextAlign.start,
     this.targetList = const [],
     this.maxLines,
-  }) : super(key: key);
+  });
 
   static const textStyle = TextStyle(fontSize: 14, fontWeight: MyFontWeight.w500);
 
@@ -53,7 +53,7 @@ class ClueText extends StatelessWidget {
               }(),
               hasSpecialCharacters: true,
             );
-          }).toList(),
+          }),
         ],
       ],
     );
