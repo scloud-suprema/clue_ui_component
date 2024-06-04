@@ -130,7 +130,7 @@ class _ClueSquareTextFieldState extends State<ClueSquareTextField> {
                           obscureText = !obscureText;
                         });
                       },
-                      icon: const Icon(Icons.visibility),
+                      icon: obscureText ? const Icon(Icons.visibility) : const Icon(Icons.visibility_off),
                     );
                   }
                 }(),

@@ -33,7 +33,6 @@ export 'package:clue_ui_component/images.dart';
 export 'package:clue_ui_component/overlay/clue_overlay.dart';
 export 'package:clue_ui_component/overlay/clue_overlay_entry.dart';
 export 'package:clue_ui_component/sample_widget_page/dialog_tap_page/dialog_tap_page.dart';
-export 'package:clue_ui_component/sample_widget_page/image_tap_page/image_tap_page.dart';
 export 'package:clue_ui_component/sample_widget_page/sample_widget_page.dart';
 export 'package:clue_ui_component/sample_widget_page/theme_tap_page/theme_tap_page.dart';
 export 'package:clue_ui_component/sample_widget_page/widget_tap_page/widget_tap_page.dart';

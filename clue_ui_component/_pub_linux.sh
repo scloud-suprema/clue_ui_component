@@ -1,8 +1,6 @@
 #!/bin/sh
-UPDATE_TYPE=$1
-echo "TYPE : $UPDATE_TYPE"
 PACKAGE_NAME=clue_ui_component
-
+CHANGELOG_FILE="CHANGELOG.md"
 # URL 설정
 URL="https://pub.dev/packages/$PACKAGE_NAME"
 
@@ -23,22 +21,7 @@ echo "The latest version of $PACKAGE_NAME is $LATEST_VERSION"
 # 버전을 . 기준으로 분리합니다.
 IFS='.' read -r VERSION_MAJOR VERSION_MINOR VERSION_PATCH <<< "$LATEST_VERSION"
 
-# 업데이트 유형에 따라 버전을 수정합니다.
-case "$UPDATE_TYPE" in
-  "--major")
-    VERSION_MAJOR=$((VERSION_MAJOR + 1))
-    VERSION_MINOR=0
-    VERSION_PATCH=0
-    ;;
-  "--minor")
-    VERSION_MINOR=$((VERSION_MINOR + 1))
-    VERSION_PATCH=0
-    ;;
-  *)
-    echo "Invalid update type. Please enter '--major' or '--minor'."
-    exit 1
-    ;;
-esac
+VERSION_PATCH=$((VERSION_PATCH + 1))
 
 # 새로운 버전 문자열을 만듭니다.
 NEW_VERSION="${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}"
@@ -52,6 +35,9 @@ else
   echo "pubspec.yaml file not found."
   exit 1
 fi
+
+#MESSAGE=`git log --pretty=format:"%h : %s" -1`
+#echo -e "## $NEW_VERSION\n* $MESSAGE\n$(cat $CHANGELOG_FILE)" > $CHANGELOG_FILE
 
 flutter pub get
 yes | flutter packages pub publish

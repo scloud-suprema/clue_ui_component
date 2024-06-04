@@ -10,12 +10,17 @@ if ! command -v jq &> /dev/null; then
 else
   echo "jq is already installed."
 fi
-UPDATE_TYPE=$1
+
+## 셋중에 하나 선택 ##
+#UPDATE_TYPE="--major"
+UPDATE_TYPE="--minor"
+#UPDATE_TYPE="--patch"
+## 셋중에 하나 선택 ##
 
 echo "Type $UPDATE_TYPE"
 # 패키지 이름을 인자로 받습니다.
 PACKAGE_NAME="clue_ui_component"
-
+CHANGELOG_FILE="CHANGELOG.md"
 # pub.dev API를 호출하여 패키지 정보를 가져옵니다.
 API_URL="https://pub.dev/api/packages/$PACKAGE_NAME"
 
@@ -37,13 +42,16 @@ IFS='.' read -r VERSION_MAJOR VERSION_MINOR VERSION_PATCH <<< "$LATEST_VERSION"
 # 업데이트 유형에 따라 버전을 수정합니다.
 case "$UPDATE_TYPE" in
   "--major")
-    VERSION_MINOR=$((VERSION_MINOR + 1))
+    VERSION_MAJOR=$((VERSION_MAJOR + 1))
     ;;
   "--minor")
+    VERSION_MINOR=$((VERSION_MINOR + 1))
+    ;;
+  "--patch")
     VERSION_PATCH=$((VERSION_PATCH + 1))
     ;;
   *)
-    echo "Invalid update type. Please enter '--major' or '--minor'."
+    echo "ERROR !!!!!"
     exit 1
     ;;
 esac
@@ -61,6 +69,10 @@ else
   echo "pubspec.yaml file not found."
   exit 1
 fi
+
+#MESSAGE=`git log --pretty=format:"%h : %s" -1`
+#echo "change_log text $MESSAGE"
+#echo -e "## $NEW_VERSION\n* $MESSAGE\n$(cat $CHANGELOG_FILE)" > $CHANGELOG_FILE
 
 flutter pub get
 yes | flutter packages pub publish
