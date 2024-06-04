@@ -1,22 +1,6 @@
 import 'dart:developer';
 
-import 'package:clue_ui_component/components/clue_circle_icon_button.dart';
-import 'package:clue_ui_component/components/clue_circle_text_field.dart';
-import 'package:clue_ui_component/components/clue_decorated_button.dart';
-import 'package:clue_ui_component/components/clue_divider.dart';
-import 'package:clue_ui_component/components/clue_drop_down_button.dart';
-import 'package:clue_ui_component/components/clue_drop_down_check_button.dart';
-import 'package:clue_ui_component/components/clue_list_tile.dart';
-import 'package:clue_ui_component/components/clue_popup_menu_button.dart';
-import 'package:clue_ui_component/components/clue_side_bar_component.dart';
-import 'package:clue_ui_component/components/clue_square_text_field.dart';
-import 'package:clue_ui_component/components/clue_text.dart';
-import 'package:clue_ui_component/components/clue_time_period_button.dart';
-import 'package:clue_ui_component/extensions/list_extension.dart';
-import 'package:clue_ui_component/extensions/style_extension.dart';
-import 'package:clue_ui_component/images.dart';
-import 'package:clue_ui_component/overlay/clue_overlay.dart';
-import 'package:clue_ui_component/themes/themes.dart';
+import 'package:clue_ui_component/clue_ui_component.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
@@ -550,114 +534,6 @@ class WidgetTapPage extends StatelessWidget {
                 ),
               ),
             ],
-          ),
-          const Gap(16),
-          const ClueDivider(),
-          const Gap(16),
-          const ClueDivider(),
-          const Gap(16),
-          ClueText('ClueSideBarComponent', style: MyTextStyle.size20.w700),
-          const Gap(8),
-          Container(
-            width: double.infinity,
-            height: 500,
-            decoration: BoxDecoration(border: Border.all()),
-            child: ClueSideBarComponent(
-              title: '제목',
-              titleOnTap: () {},
-              logo: const FlutterLogo(),
-              logoTitle: '로고 제목',
-              infoList: const [
-                ClueSideBarInfo(title: '사이드 제목1', subTitle: '사이드 서브 제목1'),
-                ClueSideBarInfo(title: '사이드 제목2', subTitle: '사이드 서브 제목2'),
-              ],
-              itemList: [
-                ClueSideBarItem(
-                  icon: MyImages.schedule,
-                  title: '아이템 이름1',
-                  onPressed: () {},
-                ),
-                ClueSideBarItem(
-                  icon: MyImages.door,
-                  title: '아이템 이름2',
-                  onPressed: () {},
-                ),
-              ],
-              child: const Placeholder(),
-            ),
-          ),
-          const Gap(16),
-          const ClueDivider(),
-          const Gap(16),
-          ClueText('CluePaint(Sample)', style: MyTextStyle.size20.w700),
-          const Gap(8),
-          Stack(
-            children: [
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  const SizedBox(width: 50),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 20),
-                    child: SizedBox(
-                      width: 100,
-                      height: 100,
-                      child: CustomPaint(
-                        painter: CirclePaint(
-                          angle: 0,
-                          circleLength: 50,
-                          color: Colors.red,
-                        ),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(width: 75),
-                ],
-              ),
-              Positioned.fill(
-                child: Align(
-                  alignment: Alignment.topLeft,
-                  child: Container(
-                    width: 100,
-                    height: 40,
-                    color: Colors.blue,
-                  ),
-                ),
-              ),
-              Positioned.fill(
-                child: Align(
-                  alignment: Alignment.bottomLeft,
-                  child: Container(
-                    width: 100,
-                    height: 40,
-                    color: Colors.blue,
-                  ),
-                ),
-              ),
-              Positioned.fill(
-                child: Align(
-                  alignment: Alignment.centerRight,
-                  child: Container(
-                    width: 100,
-                    height: 40,
-                    color: Colors.blue,
-                  ),
-                ),
-              ),
-            ],
-          ),
-          const Gap(16),
-          const ClueDivider(),
-          const Gap(16),
-          ClueText('CluePaint2(Sample)', style: MyTextStyle.size20.w700),
-          const Gap(8),
-          SizedBox(
-            width: 200,
-            height: 200,
-            child: CustomPaint(
-              painter: SeatDecorator(),
-            ),
           ),
           const Gap(16),
           const ClueDivider(),

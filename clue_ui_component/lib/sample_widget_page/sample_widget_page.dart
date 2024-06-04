@@ -1,7 +1,6 @@
-import 'package:clue_ui_component/components/clue_text.dart';
+import 'package:clue_ui_component/clue_navigator_key.dart';
 import 'package:clue_ui_component/overlay/clue_overlay.dart';
 import 'package:clue_ui_component/sample_widget_page/dialog_tap_page/dialog_tap_page.dart';
-import 'package:clue_ui_component/sample_widget_page/image_tap_page/image_tap_page.dart';
 import 'package:clue_ui_component/sample_widget_page/theme_tap_page/theme_tap_page.dart';
 import 'package:clue_ui_component/sample_widget_page/widget_tap_page/widget_tap_page.dart';
 import 'package:clue_ui_component/theme.dart';
@@ -14,6 +13,7 @@ class SampleWidgetPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      navigatorKey: clueNavigatorKey, // << Add this line
       // locale: context.locale,
       // localizationsDelegates: context.localizationDelegates,
       // supportedLocales: context.supportedLocales,
@@ -23,8 +23,8 @@ class SampleWidgetPage extends StatelessWidget {
   }
 }
 
-List<String> _titleTabs = ['Theme', 'Widget', 'Dialog', 'Image'];
-List<Widget> _widgetTabs = [const ThemeTapPage(), const WidgetTapPage(), const DialogTapPage(), const ImageTapPage()];
+List<String> _titleTabs = ['Theme', 'Widget', 'Dialog'];
+List<Widget> _widgetTabs = [const ThemeTapPage(), const WidgetTapPage(), const DialogTapPage()];
 
 class SampleWidgetPageHome extends StatelessWidget {
   const SampleWidgetPageHome({super.key});
@@ -35,7 +35,6 @@ class SampleWidgetPageHome extends StatelessWidget {
       length: _titleTabs.length,
       child: Scaffold(
         appBar: AppBar(
-          title: const ClueText('Visior Component Sample'),
           bottom: TabBar(
             tabs: _titleTabs.map((String name) => Tab(text: name)).toList(),
           ),
