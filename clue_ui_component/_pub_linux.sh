@@ -2,25 +2,12 @@
 PACKAGE_NAME=clue_ui_component
 CHANGELOG_FILE="CHANGELOG.md"
 
-# jq가 설치되어 있는지 확인하고 설치합니다.
-if ! command -v jq &> /dev/null; then
-  echo "jq is not installed. Installing jq..."
-  npm install -g jq
-  if [ $? -ne 0 ]; then
-    echo "Failed to install jq."
-    exit 1
-  fi
-else
-  echo "jq is already installed."
-fi
+# pub.dev 페이지에서 패키지 정보를 가져옵니다.
+PACKAGE_URL="https://pub.dev/packages/$PACKAGE_NAME"
+PACKAGE_PAGE=$(curl -s $PACKAGE_URL)
 
-# pub.dev API를 호출하여 패키지 정보를 가져옵니다.
-API_URL="https://pub.dev/api/packages/$PACKAGE_NAME"
-
-
-# curl로 API 호출하고 jq로 JSON 응답을 파싱하여 최신 버전 정보를 가져옵니다.
-LATEST_VERSION=$(curl -s $API_URL | jq -r '.latest.version')
-
+# title 태그에서 패키지 이름 뒤의 버전 정보를 추출합니다.
+LATEST_VERSION=$(echo "$PACKAGE_PAGE" | sed -n 's/.*<h1 class="title">'"$PACKAGE_NAME"' \([^<]*\).*/\1/p')
 
 # API 호출이 성공했는지 확인합니다.
 if [ -z "$LATEST_VERSION" ]; then
@@ -28,10 +15,8 @@ if [ -z "$LATEST_VERSION" ]; then
   exit 1
 fi
 
-
 # 최신 버전 정보를 출력합니다.
 echo "The latest version of $PACKAGE_NAME is $LATEST_VERSION"
-
 # 버전을 . 기준으로 분리합니다.
 IFS='.' read -r VERSION_MAJOR VERSION_MINOR VERSION_PATCH <<< "$LATEST_VERSION"
 
@@ -54,4 +39,4 @@ fi
 #echo -e "## $NEW_VERSION\n* $MESSAGE\n$(cat $CHANGELOG_FILE)" > $CHANGELOG_FILE
 
 flutter pub get
-yes | flutter packages pub publish
+#yes | flutter packages pub publish
