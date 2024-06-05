@@ -39,4 +39,4 @@ fi
 #echo -e "## $NEW_VERSION\n* $MESSAGE\n$(cat $CHANGELOG_FILE)" > $CHANGELOG_FILE
 
 flutter pub get
-#yes | flutter packages pub publish
+yes | flutter packages pub publish
