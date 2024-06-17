@@ -6,7 +6,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
 
+/// A sidebar component for CLUe UI that provides navigation and information.
 class ClueSideBarComponent extends StatefulWidget {
+  /// Creates a ClueSideBarComponent.
+  ///
+  /// [title] is the title displayed at the top of the sidebar.
+  /// [titleOnTap] is the callback function when the title is tapped.
+  /// [logo] is the logo widget displayed below the title.
+  /// [logoTitle] is the title displayed below the logo.
+  /// [infoList] is the list of information items to display.
+  /// [itemList] is the list of navigation items to display.
+  /// [child] is the main content widget displayed next to the sidebar.
+  /// [leftArrow] is the widget displayed when the sidebar is expanded.
+  /// [rightArrow] is the widget displayed when the sidebar is collapsed.
   const ClueSideBarComponent({
     super.key,
     required this.title,
@@ -20,14 +32,31 @@ class ClueSideBarComponent extends StatefulWidget {
     this.rightArrow,
   });
 
+  /// The title displayed at the top of the sidebar.
   final String title;
+
+  /// The callback function when the title is tapped.
   final void Function()? titleOnTap;
+
+  /// The logo widget displayed below the title.
   final Widget logo;
+
+  /// The title displayed below the logo.
   final String logoTitle;
+
+  /// The list of information items to display.
   final List<ClueSideBarInfo> infoList;
+
+  /// The list of navigation items to display.
   final List<ClueSideBarItem> itemList;
+
+  /// The main content widget displayed next to the sidebar.
   final Widget child;
+
+  /// The widget displayed when the sidebar is expanded.
   final Widget? leftArrow;
+
+  /// The widget displayed when the sidebar is collapsed.
   final Widget? rightArrow;
 
   @override
@@ -141,8 +170,8 @@ class _ClueSideBarComponentState extends State<ClueSideBarComponent> {
                           borderRadius: BorderRadius.circular(50),
                         ),
                         child: Center(
-                            child:
-                                useSideTapExpand ? (widget.leftArrow ?? MyImages.leftArrow) : (widget.rightArrow ?? MyImages.rightArrow)),
+                          child: useSideTapExpand ? (widget.leftArrow ?? MyImages.leftArrow) : (widget.rightArrow ?? MyImages.rightArrow),
+                        ),
                       ),
                     ),
                   ),
@@ -162,14 +191,22 @@ class _ClueSideBarComponentState extends State<ClueSideBarComponent> {
   }
 }
 
+/// A widget for displaying information items in the CLUe sidebar.
 class ClueSideBarInfo extends StatelessWidget {
+  /// Creates a ClueSideBarInfo.
+  ///
+  /// [title] is the title of the information item.
+  /// [subTitle] is the subtitle of the information item.
   const ClueSideBarInfo({
     super.key,
     required this.title,
     required this.subTitle,
   });
 
+  /// The title of the information item.
   final String title;
+
+  /// The subtitle of the information item.
   final String subTitle;
 
   @override
@@ -198,7 +235,15 @@ class ClueSideBarInfo extends StatelessWidget {
   }
 }
 
+/// A widget for displaying navigation items in the CLUe sidebar.
 class ClueSideBarItem extends StatelessWidget {
+  /// Creates a ClueSideBarItem.
+  ///
+  /// [icon] is the icon of the navigation item.
+  /// [title] is the title of the navigation item.
+  /// [style] is the text style of the title.
+  /// [onPressed] is the callback function when the item is pressed.
+  /// [color] is the background color of the item.
   const ClueSideBarItem({
     super.key,
     required this.icon,
@@ -208,10 +253,19 @@ class ClueSideBarItem extends StatelessWidget {
     this.color,
   });
 
+  /// The icon of the navigation item.
   final SvgPicture icon;
+
+  /// The title of the navigation item.
   final String title;
+
+  /// The text style of the title.
   final TextStyle? style;
+
+  /// The callback function when the item is pressed.
   final Function()? onPressed;
+
+  /// The background color of the item.
   final Color? color;
 
   @override

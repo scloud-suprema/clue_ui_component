@@ -5,7 +5,14 @@ import 'package:clue_ui_component/enums/time_period_status.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
+/// A widget for selecting time periods using dropdown buttons.
 class ClueTimePeriodButton extends StatefulWidget {
+  /// Creates a ClueTimePeriodButton.
+  ///
+  /// [initValue] is the initial time value.
+  /// [onChanged] is the callback function when the time changes.
+  /// [borderColor] is the border color of the dropdown buttons.
+  /// [timePeriodStatus] is the status of the time period.
   const ClueTimePeriodButton({
     super.key,
     required this.initValue,
@@ -14,10 +21,18 @@ class ClueTimePeriodButton extends StatefulWidget {
     required this.timePeriodStatus,
   });
 
+  /// The initial time value.
   final TimeOfDay initValue;
+
+  /// The callback function when the time changes.
   final void Function(TimeOfDay value) onChanged;
+
+  /// The border color of the dropdown buttons.
   final Color? borderColor;
+
+  /// The status of the time period.
   final String timePeriodStatus;
+
   @override
   State<ClueTimePeriodButton> createState() => _ClueTimePeriodButtonState();
 }

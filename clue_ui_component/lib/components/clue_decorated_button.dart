@@ -1,7 +1,17 @@
 import 'package:clue_ui_component/themes/themes.dart';
 import 'package:flutter/material.dart';
 
+/// A decorated button widget for CLUe UI components.
 class ClueDecoratedButton extends StatelessWidget {
+  /// Creates a ClueDecoratedButton.
+  ///
+  /// [width] specifies the width of the button.
+  /// [height] specifies the height of the button.
+  /// [padding] specifies the padding inside the button.
+  /// [onPressed] is the callback function to be called when the button is pressed.
+  /// [child] is the widget to be displayed inside the button.
+  /// [color] specifies the background color of the button.
+  /// [borderColor] specifies the border color of the button.
   const ClueDecoratedButton({
     super.key,
     this.width,
@@ -13,6 +23,10 @@ class ClueDecoratedButton extends StatelessWidget {
     this.borderColor,
   });
 
+  /// Creates a ClueDecoratedButton with icon size 30.
+  ///
+  /// [width] is set to 30.
+  /// [height] is set to 30.
   const ClueDecoratedButton.icon30({
     super.key,
     this.width = 30,
@@ -24,6 +38,10 @@ class ClueDecoratedButton extends StatelessWidget {
     this.borderColor,
   });
 
+  /// Creates a ClueDecoratedButton with icon size 40.
+  ///
+  /// [width] is set to 40.
+  /// [height] is set to 40.
   const ClueDecoratedButton.icon40({
     super.key,
     this.width = 40,
@@ -35,6 +53,9 @@ class ClueDecoratedButton extends StatelessWidget {
     this.borderColor,
   });
 
+  /// Creates a ClueDecoratedButton with text.
+  ///
+  /// [padding] is set to EdgeInsets.symmetric(horizontal: 12, vertical: 4).
   const ClueDecoratedButton.text({
     super.key,
     this.width,
@@ -46,12 +67,25 @@ class ClueDecoratedButton extends StatelessWidget {
     this.borderColor,
   });
 
+  /// The width of the button.
   final double? width;
+
+  /// The height of the button.
   final double? height;
+
+  /// The padding inside the button.
   final EdgeInsetsGeometry? padding;
+
+  /// The callback function to be called when the button is pressed.
   final Function()? onPressed;
+
+  /// The widget to be displayed inside the button.
   final Widget child;
+
+  /// The background color of the button.
   final Color? color;
+
+  /// The border color of the button.
   final Color? borderColor;
 
   @override

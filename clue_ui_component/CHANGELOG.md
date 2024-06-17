@@ -1,20 +1,19 @@
-## 1.0.9
-* 배포검증
 ## 1.0.8
-* 필요없는 라이브러리 삭제
+* Removed unnecessary libraries
+* Deployment validation
 ## 1.0.7
-* 톄스트 UI 변경
+* Changed test UI
 ## 1.0.6
-* 샘플코드 변경 
+* Modified sample code
 ## 1.0.5
-* 샘플코드 변경
+* Modified sample code
 ## 1.0.4
-* Syntax 변경 
+* Syntax changes
 ## 1.0.3
-* Scores 확인 
+* Checked scores 
 ## 1.0.2
-* Readme 변경 
+* Updated Readme
 ## 1.0.1
-* Installing 변경
+* Updated installing
 ## 1.0.0
-* CLUe UI Component Sample 배포
+* Released CLUe UI Component Sample

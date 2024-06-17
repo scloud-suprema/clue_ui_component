@@ -3,7 +3,16 @@ import 'package:easy_rich_text/easy_rich_text.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
+/// A text widget for CLUe UI components that supports rich text formatting.
 class ClueText extends StatelessWidget {
+  /// Creates a ClueText.
+  ///
+  /// [text] is the main text to display.
+  /// [isRequired] determines if an asterisk should be appended to the text.
+  /// [style] is the text style of the main text.
+  /// [textAlign] specifies the alignment of the text.
+  /// [targetList] is a list of [TargetModel]s for rich text patterns.
+  /// [maxLines] specifies the maximum number of lines for the text.
   const ClueText(
     this.text, {
     this.isRequired = false,
@@ -14,13 +23,25 @@ class ClueText extends StatelessWidget {
     this.maxLines,
   });
 
+  /// The default text style.
   static const textStyle = TextStyle(fontSize: 14, fontWeight: MyFontWeight.w500);
 
+  /// The main text to display.
   final String text;
+
+  /// Determines if an asterisk should be appended to the text.
   final bool isRequired;
+
+  /// The text style of the main text.
   final TextStyle style;
+
+  /// Specifies the alignment of the text.
   final TextAlign textAlign;
+
+  /// A list of [TargetModel]s for rich text patterns.
   final List<TargetModel> targetList;
+
+  /// Specifies the maximum number of lines for the text.
   final int? maxLines;
 
   @override
@@ -60,6 +81,7 @@ class ClueText extends StatelessWidget {
   }
 }
 
+/// Enum for specifying match options for rich text patterns.
 enum MatchOption {
   all('all'),
   zero(0),
@@ -74,16 +96,30 @@ enum MatchOption {
   const MatchOption(this.value);
 }
 
+/// Model class for specifying rich text patterns.
 class TargetModel {
-  final String text;
-  final List<MatchOption> matchOptions;
-  final TextStyle style;
-  final void Function()? onTap;
-
+  /// Creates a TargetModel.
+  ///
+  /// [text] is the target string to match.
+  /// [matchOptions] specifies the match options for the target string.
+  /// [style] is the text style to apply to the target string.
+  /// [onTap] is the callback function when the target string is tapped.
   TargetModel({
     required this.text,
     this.matchOptions = const [],
     required this.style,
     this.onTap,
   });
+
+  /// The target string to match.
+  final String text;
+
+  /// Specifies the match options for the target string.
+  final List<MatchOption> matchOptions;
+
+  /// The text style to apply to the target string.
+  final TextStyle style;
+
+  /// The callback function when the target string is tapped.
+  final void Function()? onTap;
 }
