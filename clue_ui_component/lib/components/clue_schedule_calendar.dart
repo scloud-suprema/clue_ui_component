@@ -15,32 +15,27 @@ enum ArrowDirection {
   after,
 }
 
-// ignore: must_be_immutable
+/// A schedule calendar widget for CLUe UI components.
 class ClueScheduleCalendar extends StatefulWidget {
-  final Widget? headerLeftWidget;
-  final Widget? headerRightWidget;
-  final DateTime initStartTime;
-  final DateTime initEndTime;
-  final Function(DateTime startTime, DateTime endTime) select;
-  final Function(DateTime startTime, DateTime endTime) range;
-  final Function()? onRefresh;
-  final Function() onCalanderClick;
-
-  final String todayText;
-  final String errorFontfamily;
-  final String lastMonthString;
-  final String nextMonthString;
-  final String cancelString;
-  final String okString;
-  final String selectDateString;
-  final String daysMaxString;
-  final String selectDurationString;
-  SvgPicture? leftArrowImage;
-  SvgPicture? calendarImage;
-  SvgPicture? rightArrowImage;
-  SvgPicture? refreshImage;
-  SvgPicture? circleLeftArrowImage;
-  SvgPicture? circleRedNotice;
+  /// Creates a ClueScheduleCalendar.
+  ///
+  /// [headerLeftWidget] is the widget displayed on the left side of the header.
+  /// [headerRightWidget] is the widget displayed on the right side of the header.
+  /// [initStartTime] is the initial start time of the calendar.
+  /// [initEndTime] is the initial end time of the calendar.
+  /// [select] is the callback function when a date range is selected.
+  /// [range] is the callback function when the date range is updated.
+  /// [onRefresh] is the callback function when the refresh button is pressed.
+  /// [onCalanderClick] is the callback function when the calendar icon is clicked.
+  /// [todayText] is the text for the today button.
+  /// [errorFontfamily] is the font family for error messages.
+  /// [lastMonthString] is the text for the last month button.
+  /// [nextMonthString] is the text for the next month button.
+  /// [cancelString] is the text for the cancel button.
+  /// [okString] is the text for the OK button.
+  /// [selectDateString] is the text for the select date button.
+  /// [daysMaxString] is the text for the maximum days message.
+  /// [selectDurationString] is the text for the select duration message.
   ClueScheduleCalendar({
     super.key,
     this.headerLeftWidget,
@@ -66,6 +61,31 @@ class ClueScheduleCalendar extends StatefulWidget {
     this.onRefresh,
     required this.onCalanderClick,
   });
+
+  final Widget? headerLeftWidget;
+  final Widget? headerRightWidget;
+  final DateTime initStartTime;
+  final DateTime initEndTime;
+  final Function(DateTime startTime, DateTime endTime) select;
+  final Function(DateTime startTime, DateTime endTime) range;
+  final Function()? onRefresh;
+  final Function() onCalanderClick;
+
+  final String todayText;
+  final String errorFontfamily;
+  final String lastMonthString;
+  final String nextMonthString;
+  final String cancelString;
+  final String okString;
+  final String selectDateString;
+  final String daysMaxString;
+  final String selectDurationString;
+  SvgPicture? leftArrowImage;
+  SvgPicture? calendarImage;
+  SvgPicture? rightArrowImage;
+  SvgPicture? refreshImage;
+  SvgPicture? circleLeftArrowImage;
+  SvgPicture? circleRedNotice;
 
   @override
   State<ClueScheduleCalendar> createState() => _ClueScheduleCalendarState();
@@ -286,6 +306,7 @@ class _ClueScheduleCalendarState extends State<ClueScheduleCalendar> {
     );
   }
 
+  /// Displays the selected date range.
   Widget get displayDate {
     return Row(
       children: [
@@ -306,6 +327,8 @@ class _ClueScheduleCalendarState extends State<ClueScheduleCalendar> {
   }
 
   double longStartDx = 0;
+
+  /// Builds the horizontal calendar widget.
   Widget get horizontalCalendar {
     DateFormat dateFormat = DateFormat('yy-MM-dd');
     String startDateForm = dateFormat.format(startTime);
@@ -395,7 +418,8 @@ class _ClueScheduleCalendarState extends State<ClueScheduleCalendar> {
     );
   }
 
-  setDate({required DateTime st, required DateTime et, bool callback = false}) {
+  /// Sets the selected date range.
+  void setDate({required DateTime st, required DateTime et, bool callback = false}) {
     DateTime start = st;
     DateTime end = et;
     setState(() {
@@ -405,7 +429,8 @@ class _ClueScheduleCalendarState extends State<ClueScheduleCalendar> {
     if (callback) widget.select(startTime, endTime);
   }
 
-  setRange({required DateTime st, required DateTime et, bool callback = false}) {
+  /// Sets the selected date range and triggers the callback if required.
+  void setRange({required DateTime st, required DateTime et, bool callback = false}) {
     DateTime start = st;
     DateTime end = et;
     setState(() {
@@ -416,6 +441,7 @@ class _ClueScheduleCalendarState extends State<ClueScheduleCalendar> {
   }
 }
 
+/// A horizontal calendar item for the CLUe schedule calendar.
 class HorizontalCalendarItem extends StatefulWidget {
   final DateTime dateTime;
   final double itemWidth;
@@ -426,6 +452,16 @@ class HorizontalCalendarItem extends StatefulWidget {
   final bool isEdge;
   final Function(DateTime) setDate;
 
+  /// Creates a HorizontalCalendarItem.
+  ///
+  /// [dateTime] is the date to be displayed.
+  /// [itemWidth] is the width of the item.
+  /// [isSameDate] indicates if the date is the same as the selected date.
+  /// [isEndEdge] indicates if the date is the end edge of the selected range.
+  /// [isStartEdge] indicates if the date is the start edge of the selected range.
+  /// [isInDate] indicates if the date is within the selected range.
+  /// [isEdge] indicates if the date is an edge date.
+  /// [setDate] is the callback function to set the selected date.
   const HorizontalCalendarItem({
     super.key,
     required this.dateTime,

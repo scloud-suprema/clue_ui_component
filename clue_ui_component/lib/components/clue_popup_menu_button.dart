@@ -2,6 +2,7 @@ import 'package:clue_ui_component/components/clue_divider.dart';
 import 'package:clue_ui_component/themes/themes.dart';
 import 'package:flutter/material.dart';
 
+/// Enum for menu alignment options.
 enum MenuAlign {
   left(Alignment.bottomRight, Alignment.topRight, Alignment.topRight),
   center(Alignment.bottomCenter, Alignment.topCenter, Alignment.topCenter),
@@ -18,7 +19,15 @@ enum MenuAlign {
   );
 }
 
+/// A popup menu button for CLUe UI components.
 class CluePopupMenuButton<T> extends StatefulWidget {
+  /// Creates a CluePopupMenuButton.
+  ///
+  /// [itemList] is the list of menu items to display.
+  /// [menuWidth] is the width of the menu.
+  /// [menuAlign] specifies the alignment of the menu.
+  /// [child] is the widget to display as the button.
+  /// [onTap] is the callback function called when a menu item is tapped.
   const CluePopupMenuButton({
     super.key,
     this.itemList = const [],
@@ -28,20 +37,34 @@ class CluePopupMenuButton<T> extends StatefulWidget {
     required this.onTap,
   });
 
+  /// The initial index of the selected item.
   final initIndex = 0;
+
+  /// The list of menu items to display.
   final List<Widget> itemList;
+
+  /// The width of the menu.
   final double menuWidth;
+
+  /// Specifies the alignment of the menu.
   final MenuAlign menuAlign;
+
+  /// The widget to display as the button.
   final Widget child;
+
+  /// The callback function called when a menu item is tapped.
   final void Function(int index) onTap;
 
   @override
   State<StatefulWidget> createState() => CluePopupMenuButtonState<T>();
 }
 
+/// State for [CluePopupMenuButton].
 class CluePopupMenuButtonState<T> extends State<CluePopupMenuButton<T>> {
-  // 기본 데이터
+  /// Controller for the tooltip overlay.
   final OverlayPortalController _tooltipController = OverlayPortalController();
+
+  /// Layer link for the popup menu.
   final _link = LayerLink();
 
   @override
@@ -89,10 +112,12 @@ class CluePopupMenuButtonState<T> extends State<CluePopupMenuButton<T>> {
     );
   }
 
+  /// Toggles the popup menu visibility.
   void onTap() {
     _tooltipController.toggle();
   }
 
+  /// Builds the popup menu widget.
   Widget menuWidget() {
     return Material(
       child: Container(
@@ -116,6 +141,7 @@ class CluePopupMenuButtonState<T> extends State<CluePopupMenuButton<T>> {
     );
   }
 
+  /// Builds each item in the popup menu.
   Widget menuItem(int index, Widget child) {
     return InkWell(
       onTap: () {

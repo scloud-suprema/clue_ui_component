@@ -3,10 +3,19 @@ import 'package:clue_ui_component/images.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
+/// A custom check list tile widget for CLUe UI components.
 class ClueCheckListTile extends StatefulWidget {
+  /// Icon for checked state.
   final SvgPicture? checkboxOn;
+
+  /// Icon for unchecked state.
   final SvgPicture? checkboxOff;
 
+  /// Creates a CLUeCheckListTile.
+  ///
+  /// [title] is the text to be displayed.
+  /// [initValue] is the initial checked state.
+  /// [onChanged] is the callback function when the checked state changes.
   const ClueCheckListTile({
     super.key,
     required this.title,
@@ -16,20 +25,22 @@ class ClueCheckListTile extends StatefulWidget {
     this.checkboxOff,
   });
 
-  /// 타이틀
+  /// The title of the check list tile.
   final String title;
 
-  /// 초기값
+  /// The initial value of the check list tile.
   final bool? initValue;
 
-  /// 콜백함수
+  /// The callback function that is called when the checked state changes.
   final Function onChanged;
 
   @override
   State<ClueCheckListTile> createState() => _ClueCheckListTileState();
 }
 
+/// State for [ClueCheckListTile].
 class _ClueCheckListTileState extends State<ClueCheckListTile> {
+  /// The current checked state.
   late bool isChecked;
 
   @override
